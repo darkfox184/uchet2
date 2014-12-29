@@ -1,0 +1,59 @@
+object pshet: Tpshet
+  Left = 0
+  Top = 0
+  Caption = #1055#1077#1095#1072#1090#1100' '#1089#1095#1077#1090#1072
+  ClientHeight = 481
+  ClientWidth = 680
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object frxPreview1: TfrxPreview
+    Left = 0
+    Top = 0
+    Width = 680
+    Height = 481
+    Align = alClient
+    OutlineVisible = True
+    OutlineWidth = 121
+    ThumbnailVisible = False
+    UseReportHints = True
+    ExplicitLeft = 224
+    ExplicitTop = 184
+    ExplicitWidth = 100
+    ExplicitHeight = 100
+  end
+  object frxReport1: TfrxReport
+    Version = '5.1.5'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 42001.414801273150000000
+    ReportOptions.LastChange = 42001.414801273150000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 48
+    Top = 200
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object frxDBDataset1: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    BCDToCurrency = False
+    Left = 48
+    Top = 128
+  end
+end

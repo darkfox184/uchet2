@@ -1,0 +1,37 @@
+unit Unit9;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  Toptions = class(TForm)
+    Panel1: TPanel;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Button1: TButton;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  options: Toptions;
+
+implementation
+
+{$R *.dfm}
+
+procedure Toptions.FormCreate(Sender: TObject);
+begin
+DataModule2.options_Query.SQL.Clear;
+DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
+DataModule2.options_Query.open;
+redtovpr.edit8.Text:=DataModule2.options_Query.Fields[0].AsString;
+end;
+
+end.
