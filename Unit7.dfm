@@ -188,7 +188,7 @@ object redtovpr: Tredtovpr
     TabOrder = 9
   end
   object save: TButton
-    Left = 218
+    Left = 216
     Top = 339
     Width = 126
     Height = 27

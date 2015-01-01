@@ -97,4 +97,21 @@ object DataModule2: TDataModule2
     Left = 40
     Top = 160
   end
+  object shet_FDQuery: TFDQuery
+    Connection = FDConnection1
+    Left = 240
+    Top = 296
+  end
+  object shet2_FDQuery: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT  id,gark  FROM garant ORDER BY id DESC, id LIMIT 10')
+    Left = 352
+    Top = 296
+  end
+  object shet2_DataSource: TDataSource
+    DataSet = shet2_FDQuery
+    Left = 440
+    Top = 296
+  end
 end

@@ -3,7 +3,7 @@ object sklad: Tsklad
   Top = 0
   Caption = #1058#1086#1074#1072#1088' '#1085#1072' '#1089#1082#1083#1072#1076#1077
   ClientHeight = 473
-  ClientWidth = 1346
+  ClientWidth = 1276
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,29 +11,27 @@ object sklad: Tsklad
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 19
   object Panel2: TPanel
     Left = 0
     Top = 73
-    Width = 1346
+    Width = 1276
     Height = 400
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 11
-    ExplicitLeft = -123
-    ExplicitTop = 7
-    ExplicitWidth = 1286
-    ExplicitHeight = 466
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1346
+    Width = 1276
     Height = 73
     Align = alTop
     TabOrder = 10
+    ExplicitLeft = 32
     ExplicitTop = -6
     object Label1: TLabel
       Left = 872
@@ -74,7 +72,7 @@ object sklad: Tsklad
   object DBGrid1: TDBGrid
     Left = 0
     Top = 73
-    Width = 1346
+    Width = 1276
     Height = 400
     Align = alClient
     DataSource = DataModule2.sklad_DataSource
@@ -177,7 +175,7 @@ object sklad: Tsklad
         Visible = True
       end>
   end
-  object Button1: TButton
+  object prodat: TButton
     Left = 0
     Top = 8
     Width = 137
@@ -190,6 +188,7 @@ object sklad: Tsklad
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnClick = prodatClick
   end
   object Button2: TButton
     Left = 143
@@ -204,8 +203,9 @@ object sklad: Tsklad
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = Button2Click
   end
-  object Button4: TButton
+  object schet_create: TButton
     Left = 447
     Top = 8
     Width = 138
@@ -218,6 +218,7 @@ object sklad: Tsklad
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    OnClick = schet_createClick
   end
   object Button6: TButton
     Left = 311
@@ -232,6 +233,7 @@ object sklad: Tsklad
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    OnClick = Button6Click
   end
   object Button3: TButton
     Left = 591
@@ -258,8 +260,8 @@ object sklad: Tsklad
     Visible = False
   end
   object ComboBox1: TComboBox
-    Left = 1027
-    Top = 7
+    Left = 988
+    Top = 8
     Width = 187
     Height = 27
     TabOrder = 7
@@ -271,16 +273,16 @@ object sklad: Tsklad
       #1055#1086#1080#1089#1082' '#1087#1086' '#1089#1095#1077#1090#1091'/'#1075#1072#1088#1072#1085#1090#1080#1081#1085#1086#1084#1091' '#1090#1072#1083#1086#1085#1091)
   end
   object search: TButton
-    Left = 1220
-    Top = 8
+    Left = 1181
+    Top = 9
     Width = 95
     Height = 48
     Caption = #1055#1086#1080#1089#1082
     TabOrder = 8
   end
   object DateTimePicker1: TDateTimePicker
-    Left = 1027
-    Top = 40
+    Left = 988
+    Top = 41
     Width = 187
     Height = 27
     Date = 42001.802970416670000000

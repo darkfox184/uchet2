@@ -13,7 +13,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Button4: TButton;
-    Button6: TButton;
+    redaktirovat: TButton;
     Button3: TButton;
     Edit1: TEdit;
     ComboBox1: TComboBox;
@@ -25,7 +25,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
-    procedure Button6Click(Sender: TObject);
+    procedure redaktirovatClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure ComboBox1Click(Sender: TObject);
     procedure searchClick(Sender: TObject);
@@ -103,7 +103,9 @@ begin
   end;
  end;
 
-procedure Tprtovar.Button6Click(Sender: TObject);
+procedure Tprtovar.redaktirovatClick(Sender: TObject);
+var
+prb,prz:string;
 begin
 redtovpr.edit7.text:=DBGrid1.Fields[0].AsString;
 DataModule2.retovp_Query1.SQL.Clear;
@@ -113,8 +115,10 @@ DataModule2.retovp_Query1.open;
 redtovpr.edit8.Text:=DataModule2.retovp_Query1.Fields[1].AsString;
 redtovpr.edit10.Text:=DataModule2.retovp_Query1.Fields[7].AsString;
 redtovpr.edit9.Text:=DataModule2.retovp_Query1.Fields[5].AsString;
+
 redtovpr.edit1.Text:=DataModule2.retovp_Query1.Fields[2].AsString;
 redtovpr.edit2.Text:=DataModule2.retovp_Query1.Fields[3].AsString;
+
 redtovpr.edit4.Text:=DataModule2.retovp_Query1.Fields[4].AsString;
 redtovpr.edit3.Text:=DataModule2.retovp_Query1.Fields[10].AsString;
 redtovpr.edit5.Text:=DataModule2.retovp_Query1.Fields[6].AsString;

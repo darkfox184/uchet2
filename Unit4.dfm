@@ -24,10 +24,6 @@ object prtovar: Tprtovar
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 11
-    ExplicitLeft = 496
-    ExplicitTop = 112
-    ExplicitWidth = 185
-    ExplicitHeight = 41
   end
   object Panel1: TPanel
     Left = 0
@@ -181,7 +177,7 @@ object prtovar: Tprtovar
     TabOrder = 3
     OnClick = Button4Click
   end
-  object Button6: TButton
+  object redaktirovat: TButton
     Left = 391
     Top = 9
     Width = 330
@@ -194,7 +190,7 @@ object prtovar: Tprtovar
     Font.Style = []
     ParentFont = False
     TabOrder = 4
-    OnClick = Button6Click
+    OnClick = redaktirovatClick
   end
   object Button3: TButton
     Left = 871
