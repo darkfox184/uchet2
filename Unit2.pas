@@ -30,6 +30,22 @@ type
     shet_FDQuery: TFDQuery;
     shet2_FDQuery: TFDQuery;
     shet2_DataSource: TDataSource;
+    zakaz_Query: TFDQuery;
+    zakaz_DataSource: TDataSource;
+    ucluga_Query: TFDQuery;
+    ucluga_DataSource: TDataSource;
+    clients_Query: TFDQuery;
+    clients_DataSource: TDataSource;
+    clients_Query1: TFDQuery;
+    clients_DataSource1: TDataSource;
+    clients_Query2: TFDQuery;
+    post_Query: TFDQuery;
+    post_DataSource: TDataSource;
+    post_Query2: TFDQuery;
+    post_DataSource1: TDataSource;
+    post_Query1: TFDQuery;
+    FDQuery1: TFDQuery;
+    DataSource1: TDataSource;
   private
     { Private declarations }
   public

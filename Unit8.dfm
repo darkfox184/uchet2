@@ -31,7 +31,6 @@ object sklad: Tsklad
     Height = 73
     Align = alTop
     TabOrder = 10
-    ExplicitLeft = 32
     ExplicitTop = -6
     object Label1: TLabel
       Left = 872
@@ -67,6 +66,7 @@ object sklad: Tsklad
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnClick = Button5Click
     end
   end
   object DBGrid1: TDBGrid
@@ -163,7 +163,7 @@ object sklad: Tsklad
       item
         Expanded = False
         FieldName = 'garb'
-        Title.Caption = #1043#1075#1072#1088#1072#1085#1090#1080#1103' '#1073#1072#1079#1099
+        Title.Caption = #1043#1072#1088#1072#1085#1090#1080#1103' '#1073#1072#1079#1099
         Width = 150
         Visible = True
       end
@@ -251,37 +251,40 @@ object sklad: Tsklad
     OnClick = Button3Click
   end
   object Edit1: TEdit
-    Left = 1053
-    Top = 40
-    Width = 161
+    Left = 954
+    Top = 41
+    Width = 187
     Height = 27
     TabOrder = 6
     TextHint = #1055#1086#1080#1089#1082
     Visible = False
   end
   object ComboBox1: TComboBox
-    Left = 988
+    Left = 954
     Top = 8
     Width = 187
     Height = 27
     TabOrder = 7
     TextHint = #1055#1072#1088#1072#1084#1077#1090#1088' '#1087#1086#1080#1089#1082#1072
+    OnClick = ComboBox1Click
     Items.Strings = (
       #1055#1086#1080#1089#1082' '#1089#1077#1088#1080#1081#1085#1086#1084#1091' '#1085#1086#1084#1077#1088#1091
       #1055#1086#1080#1089#1082' '#1087#1086' '#1076#1072#1090#1077
       #1055#1086#1080#1089#1082' '#1087#1086' '#1085#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1102
-      #1055#1086#1080#1089#1082' '#1087#1086' '#1089#1095#1077#1090#1091'/'#1075#1072#1088#1072#1085#1090#1080#1081#1085#1086#1084#1091' '#1090#1072#1083#1086#1085#1091)
+      '')
   end
   object search: TButton
-    Left = 1181
-    Top = 9
+    Left = 1147
+    Top = 8
     Width = 95
-    Height = 48
+    Height = 50
     Caption = #1055#1086#1080#1089#1082
+    Default = True
     TabOrder = 8
+    OnClick = searchClick
   end
   object DateTimePicker1: TDateTimePicker
-    Left = 988
+    Left = 954
     Top = 41
     Width = 187
     Height = 27

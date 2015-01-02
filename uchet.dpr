@@ -12,7 +12,19 @@ uses
   Unit8 in 'Unit8.pas' {sklad},
   Unit9 in 'Unit9.pas' {options},
   Unit10 in 'Unit10.pas' {prodaga},
-  Unit11 in 'Unit11.pas' {redsklad};
+  Unit11 in 'Unit11.pas' {redsklad},
+  Unit12 in 'Unit12.pas' {dsklad},
+  Unit13 in 'Unit13.pas' {zakaz},
+  Unit14 in 'Unit14.pas' {dzakaz},
+  Unit15 in 'Unit15.pas' {redzakaz},
+  Unit16 in 'Unit16.pas' {opskladf},
+  Unit17 in 'Unit17.pas' {dusluga},
+  client in 'client.pas' {clients},
+  addclient in 'addclient.pas' {addclients},
+  redclient in 'redclient.pas' {redclients},
+  addnakls in 'addnakls.pas' {addnakl},
+  adnakl1 in 'adnakl1.pas' {nakladd},
+  rednakl in 'rednakl.pas' {rednakls};
 
 {$R *.res}
 
@@ -30,5 +42,17 @@ begin
   Application.CreateForm(Toptions, options);
   Application.CreateForm(Tprodaga, prodaga);
   Application.CreateForm(Tredsklad, redsklad);
+  Application.CreateForm(Tdsklad, dsklad);
+  Application.CreateForm(Tzakaz, zakaz);
+  Application.CreateForm(Tdzakaz, dzakaz);
+  Application.CreateForm(Tredzakaz, redzakaz);
+  Application.CreateForm(Topskladf, opskladf);
+  Application.CreateForm(Tdusluga, dusluga);
+  Application.CreateForm(Tclients, clients);
+  Application.CreateForm(Taddclients, addclients);
+  Application.CreateForm(Tredclients, redclients);
+  Application.CreateForm(Taddnakl, addnakl);
+  Application.CreateForm(Tnakladd, nakladd);
+  Application.CreateForm(Trednakls, rednakls);
   Application.Run;
 end.

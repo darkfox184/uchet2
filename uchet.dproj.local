@@ -1,26 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.150,=K:\доки2\девелоп\git\uchet\OKCANCL2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.110,K:\доки2\девелоп\git\uchet\Unit1.pas=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.309,=K:\доки2\девелоп\git\uchet\Unit3.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.910,=K:\доки2\девелоп\git\uchet\Unit4.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.116,K:\доки2\девелоп\git\uchet\uchet.dproj=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.956,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.881,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.748,=K:\доки2\девелоп\git\uchet\ABOUT.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.112,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.889,=K:\доки2\девелоп\git\uchet\Unit8.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.115,=K:\доки2\девелоп\git\uchet\Unit8.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.817,=K:\доки2\девелоп\git\uchet\Unit5.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.928,=K:\доки2\девелоп\git\uchet\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.014,=K:\доки2\девелоп\git\uchet\Unit3.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.881,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.956,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.872,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.112,=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.748,=K:\доки2\девелоп\git\uchet\ABOUT.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.110,K:\доки2\девелоп\git\uchet\Unit1.dfm=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.760,=K:\доки2\девелоп\git\uchet\Unit7.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.197,=K:\доки2\девелоп\git\uchet\Unit9.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.116,K:\доки2\девелоп\git\uchet\uchet.dproj=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.997,=K:\Copy\uchet2\Unit11.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.928,=K:\доки2\девелоп\git\uchet\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.910,=K:\доки2\девелоп\git\uchet\Unit4.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.219,=K:\доки2\девелоп\git\uchet\Unit6.pas</Transaction>
-    <Transaction>2015.01.01 18:49:55.847,=K:\Copy\uchet2\Unit10.pas</Transaction>
-    <Transaction>2015.01.01 21:02:41.997,=K:\Copy\uchet2\Unit11.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.197,=K:\доки2\девелоп\git\uchet\Unit9.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.110,K:\доки2\девелоп\git\uchet\Unit1.dfm=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.150,=K:\доки2\девелоп\git\uchet\OKCANCL2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.110,K:\доки2\девелоп\git\uchet\Unit1.pas=C:\Users\Администратор\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.014,=K:\доки2\девелоп\git\uchet\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.760,=K:\доки2\девелоп\git\uchet\Unit7.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.309,=K:\доки2\девелоп\git\uchet\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.847,=K:\Copy\uchet2\Unit10.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.817,=K:\доки2\девелоп\git\uchet\Unit5.pas</Transaction>
+    <Transaction>2015.01.02 11:37:58.470,=K:\Copy\uchet2\Unit12.pas</Transaction>
+    <Transaction>2015.01.02 12:51:37.232,=K:\Copy\uchet2\Unit13.pas</Transaction>
+    <Transaction>2015.01.02 13:25:05.105,=K:\Copy\uchet2\Unit14.pas</Transaction>
+    <Transaction>2015.01.02 15:25:42.002,=K:\Copy\uchet2\Unit15.pas</Transaction>
+    <Transaction>2015.01.02 17:13:15.137,=K:\Copy\uchet2\Unit16.pas</Transaction>
+    <Transaction>2015.01.02 18:24:19.805,=K:\Copy\uchet2\Unit17.pas</Transaction>
+    <Transaction>2015.01.02 19:28:10.421,=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 19:29:31.277,K:\Copy\uchet2\client.pas=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 19:29:31.277,K:\Copy\uchet2\client.dfm=K:\Copy\uchet2\Unit18.dfm</Transaction>
+    <Transaction>2015.01.02 19:57:33.024,=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 19:59:30.264,K:\Copy\uchet2\addclient.dfm=K:\Copy\uchet2\Unit18.dfm</Transaction>
+    <Transaction>2015.01.02 19:59:30.264,K:\Copy\uchet2\addclient.pas=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 21:08:32.599,=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 21:10:49.350,K:\Copy\uchet2\redclient.dfm=K:\Copy\uchet2\Unit18.dfm</Transaction>
+    <Transaction>2015.01.02 21:10:49.350,K:\Copy\uchet2\redclient.pas=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 21:38:14.682,=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 21:39:36.961,K:\Copy\uchet2\addnakls.dfm=K:\Copy\uchet2\Unit18.dfm</Transaction>
+    <Transaction>2015.01.02 21:39:36.961,K:\Copy\uchet2\addnakls.pas=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 21:52:41.829,=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 22:00:07.657,K:\Copy\uchet2\adnakl1.pas=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 22:00:07.657,K:\Copy\uchet2\adnakl1.dfm=K:\Copy\uchet2\Unit18.dfm</Transaction>
+    <Transaction>2015.01.02 22:16:22.144,=K:\Copy\uchet2\Unit18.pas</Transaction>
+    <Transaction>2015.01.02 22:20:32.022,K:\Copy\uchet2\rednakl.dfm=K:\Copy\uchet2\Unit18.dfm</Transaction>
+    <Transaction>2015.01.02 22:20:32.022,K:\Copy\uchet2\rednakl.pas=K:\Copy\uchet2\Unit18.pas</Transaction>
   </Transactions>
 </BorlandProject>

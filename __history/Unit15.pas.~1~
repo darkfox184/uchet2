@@ -1,0 +1,55 @@
+unit Unit15;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls;
+
+type
+  TForm15 = class(TForm)
+    Label2: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label14: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit6: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    dskbtn: TButton;
+    Button2: TButton;
+    ComboBox1: TComboBox;
+    DateTimePicker2: TDateTimePicker;
+    procedure Button2Click(Sender: TObject);
+    procedure dskbtnClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form15: TForm15;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm15.Button2Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TForm15.dskbtnClick(Sender: TObject);
+begin
+
+close;
+end;
+
+end.

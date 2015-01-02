@@ -216,7 +216,7 @@ object redsklad: Tredsklad
     Text = 'Edit9'
   end
   object save: TButton
-    Left = 367
+    Left = 374
     Top = 308
     Width = 126
     Height = 27

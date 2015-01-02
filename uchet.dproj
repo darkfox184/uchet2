@@ -86,7 +86,10 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <VerInfo_DLL>true</VerInfo_DLL>
+        <VerInfo_PreRelease>true</VerInfo_PreRelease>
+        <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=2.0.0.0;InternalName=;LegalCopyright=Fox IT Lab;LegalTrademarks=;OriginalFilename=;ProductName=В2В 2С - Учет товара  &quot;Компьютерная техника&quot;;ProductVersion=2.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_MajorVer>2</VerInfo_MajorVer>
         <VerInfo_Locale>1049</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
@@ -137,6 +140,54 @@
         </DCCReference>
         <DCCReference Include="Unit11.pas">
             <Form>redsklad</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit12.pas">
+            <Form>dsklad</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit13.pas">
+            <Form>zakaz</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit14.pas">
+            <Form>dzakaz</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit15.pas">
+            <Form>redzakaz</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit16.pas">
+            <Form>opskladf</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit17.pas">
+            <Form>dusluga</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="client.pas">
+            <Form>clients</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="addclient.pas">
+            <Form>addclients</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="redclient.pas">
+            <Form>redclients</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="addnakls.pas">
+            <Form>addnakl</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="adnakl1.pas">
+            <Form>nakladd</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="rednakl.pas">
+            <Form>rednakls</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -511,6 +562,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

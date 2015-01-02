@@ -179,7 +179,7 @@ object prtovar: Tprtovar
   end
   object redaktirovat: TButton
     Left = 391
-    Top = 9
+    Top = 8
     Width = 330
     Height = 50
     Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' / '#1042#1077#1088#1085#1091#1090#1100' '#1085#1072' '#1089#1082#1083#1072#1076
@@ -194,7 +194,7 @@ object prtovar: Tprtovar
   end
   object Button3: TButton
     Left = 871
-    Top = 9
+    Top = 8
     Width = 130
     Height = 49
     Caption = #1054#1073#1085#1086#1074#1080#1090#1100
@@ -236,6 +236,7 @@ object prtovar: Tprtovar
     Width = 95
     Height = 49
     Caption = #1055#1086#1080#1089#1082
+    Default = True
     TabOrder = 8
     OnClick = searchClick
   end
