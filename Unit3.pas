@@ -41,6 +41,7 @@ type
     procedure N16Click(Sender: TObject);
     procedure N13Click(Sender: TObject);
     procedure N8Click(Sender: TObject);
+    procedure N20Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,15 +55,19 @@ implementation
 
 {$R *.dfm}
 
-uses Unit4, Unit8, Unit9, Unit13, Unit2, Unit17, client, addnakls;
+uses prodagi, rsklad, kursval, rzakaz, Unit2, Unit17, client, addnakls, rpostav;
 
 procedure Tmain.N12Click(Sender: TObject);
 begin
+if (not Assigned(prtovar)) then   // проверка существования Формы (если нет, то
+prtovar:=Tprtovar.Create(Self);    // создание Формы)
 prtovar.show;
 end;
 
 procedure Tmain.N13Click(Sender: TObject);
 begin
+if (not Assigned(clients)) then
+clients:=Tclients.Create(Self);
 clients.show;
 end;
 
@@ -97,12 +102,23 @@ end;
 
 procedure Tmain.N16Click(Sender: TObject);
 begin
+if (not Assigned(dusluga)) then
+dusluga:=Tdusluga.Create(Self);
 dusluga.show;
 end;
 
 procedure Tmain.N19Click(Sender: TObject);
 begin
+if (not Assigned(options)) then
+options:=Toptions.Create(Self);
 options.show;
+end;
+
+procedure Tmain.N20Click(Sender: TObject);
+begin
+if (not Assigned(postav)) then
+postav:=Tpostav.Create(Self);
+postav.show;
 end;
 
 procedure Tmain.N6Click(Sender: TObject);
@@ -112,16 +128,22 @@ end;
 
 procedure Tmain.N7Click(Sender: TObject);
 begin
+if (not Assigned(zakaz)) then
+zakaz:=Tzakaz.Create(Self);
 zakaz.show;
 end;
 
 procedure Tmain.N8Click(Sender: TObject);
 begin
+if (not Assigned(addnakl)) then
+addnakl:=Taddnakl.Create(Self);
 addnakl.show;
 end;
 
 procedure Tmain.N9Click(Sender: TObject);
 begin
+if (not Assigned(sklad)) then
+sklad:=Tsklad.Create(Self);
 sklad.show;
 end;
 

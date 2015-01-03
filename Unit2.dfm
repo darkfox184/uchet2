@@ -1,7 +1,9 @@
 object DataModule2: TDataModule2
   OldCreateOrder = False
+  OnCreate = DataModuleCreate
   Height = 627
-  Width = 520
+  VerticalOffset = 5
+  Width = 756
   object FDConnection1: TFDConnection
     Params.Strings = (
       'Server=foxvaler.mysql.ukraine.com.ua'
@@ -209,5 +211,12 @@ object DataModule2: TDataModule2
     DataSet = FDQuery1
     Left = 120
     Top = 584
+  end
+  object sum_Query: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT * FROM `nakladnaya` LIMIT 0 , 10')
+    Left = 488
+    Top = 11
   end
 end

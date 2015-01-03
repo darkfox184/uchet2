@@ -110,7 +110,7 @@
             <Form>main</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit4.pas">
+        <DCCReference Include="prodagi.pas">
             <Form>prtovar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -126,39 +126,39 @@
             <Form>redtovpr</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit8.pas">
+        <DCCReference Include="rsklad.pas">
             <Form>sklad</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit9.pas">
+        <DCCReference Include="kursval.pas">
             <Form>options</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit10.pas">
+        <DCCReference Include="rsklprod.pas">
             <Form>prodaga</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit11.pas">
+        <DCCReference Include="redtovskl.pas">
             <Form>redsklad</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit12.pas">
+        <DCCReference Include="dobavltov.pas">
             <Form>dsklad</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit13.pas">
+        <DCCReference Include="rzakaz.pas">
             <Form>zakaz</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit14.pas">
+        <DCCReference Include="dzakaztov.pas">
             <Form>dzakaz</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit15.pas">
+        <DCCReference Include="rezakaz.pas">
             <Form>redzakaz</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit16.pas">
+        <DCCReference Include="prtovskl.pas">
             <Form>opskladf</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -188,6 +188,22 @@
         </DCCReference>
         <DCCReference Include="rednakl.pas">
             <Form>rednakls</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="rpostav.pas">
+            <Form>postav</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="rpostadd.pas">
+            <Form>postadd</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="rredpost.pas">
+            <Form>redpost</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="poiskzakaza.pas">
+            <Form>Form4</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

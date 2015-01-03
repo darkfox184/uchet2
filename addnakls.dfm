@@ -21,8 +21,6 @@ object addnakl: Taddnakl
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = -68
-    ExplicitWidth = 645
     object Button1: TButton
       Left = 16
       Top = 8

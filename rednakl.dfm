@@ -12,6 +12,7 @@ object rednakls: Trednakls
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 19
   object Label1: TLabel

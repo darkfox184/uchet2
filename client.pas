@@ -35,16 +35,18 @@ uses Unit2, addclient, redclient;
 
 procedure Tclients.Button1Click(Sender: TObject);
 begin
-addclients.show;
+if (not Assigned(addclients)) then addclients:=Taddclients.Create(Self);
+addclients.showmodal;
 end;
 
 procedure Tclients.Button2Click(Sender: TObject);
 begin
+if (not Assigned(redclients)) then redclients:=Tredclients.Create(Self);
 redclients.edit1.text:=DBGrid1.Fields[1].AsString;
 redclients.edit2.text:=DBGrid1.Fields[2].AsString;
 redclients.edit3.text:=DBGrid1.Fields[3].AsString;
 redclients.Label5.Caption:=DBGrid1.Fields[0].AsString;
-redclients.show;
+redclients.showmodal;
 end;
 
 procedure Tclients.Button3Click(Sender: TObject);

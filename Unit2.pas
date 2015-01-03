@@ -46,6 +46,8 @@ type
     post_Query1: TFDQuery;
     FDQuery1: TFDQuery;
     DataSource1: TDataSource;
+    sum_Query: TFDQuery;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -60,5 +62,10 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDataModule2.DataModuleCreate(Sender: TObject);
+begin
+DataModule2.clients_Query.active:=true;
+end;
 
 end.

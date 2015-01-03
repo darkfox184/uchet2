@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.DBCtrls;
 
 type
   Tredtovpr = class(TForm)
@@ -25,7 +25,6 @@ type
     Edit3: TEdit;
     Edit4: TEdit;
     Edit5: TEdit;
-    Edit6: TEdit;
     Edit8: TEdit;
     Edit9: TEdit;
     Edit10: TEdit;
@@ -37,6 +36,7 @@ type
     DateTimePicker2: TDateTimePicker;
     Edit7: TEdit;
     Button1: TButton;
+    DBLookupComboBox1: TDBLookupComboBox;
     procedure Button2Click(Sender: TObject);
     procedure saveClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -69,7 +69,7 @@ DataModule2.redtovp_save_Query1.ParamByName('pricep').AsString:=edit4.Text;
 DataModule2.redtovp_save_Query1.ParamByName('garb').AsString:=edit9.Text;
 DataModule2.redtovp_save_Query1.ParamByName('gark').AsString:=edit5.Text;
 DataModule2.redtovp_save_Query1.ParamByName('nomgart').AsString:=edit10.Text;
-DataModule2.redtovp_save_Query1.ParamByName('fio').AsString:=edit6.Text;
+DataModule2.redtovp_save_Query1.ParamByName('fio').AsString:=DBLookupComboBox1.Text;
 DataModule2.redtovp_save_Query1.ParamByName('koll').AsString:=edit3.Text;
 DataModule2.redtovp_save_Query1.ParamByName('prodavec').AsString:=combobox1.Text;
 DataModule2.redtovp_save_Query1.ExecSQL;
@@ -105,7 +105,7 @@ DataModule2.redtovp_save_Query1.ParamByName('pricep').AsString:=StringReplace(ed
 DataModule2.redtovp_save_Query1.ParamByName('garb').AsString:=edit9.Text;
 DataModule2.redtovp_save_Query1.ParamByName('gark').AsString:=edit5.Text;
 DataModule2.redtovp_save_Query1.ParamByName('nomgart').AsString:=edit10.Text;
-DataModule2.redtovp_save_Query1.ParamByName('fio').AsString:=edit6.Text;
+DataModule2.redtovp_save_Query1.ParamByName('fio').AsString:=DBLookupComboBox1.Text;
 DataModule2.redtovp_save_Query1.ParamByName('koll').AsString:=edit3.Text;
 DataModule2.redtovp_save_Query1.ParamByName('prodavec').AsString:=combobox1.Text;
 DataModule2.redtovp_save_Query1.ExecSQL;

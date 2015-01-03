@@ -44,7 +44,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit2, Unit4;
+uses Unit2, prodagi;
 
 procedure Tdusluga.Edit8Click(Sender: TObject);
 begin
