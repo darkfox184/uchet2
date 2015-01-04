@@ -269,7 +269,7 @@ object sklad: Tsklad
     OnClick = searchClick
   end
   object DateTimePicker1: TDateTimePicker
-    Left = 906
+    Left = 838
     Top = 41
     Width = 187
     Height = 27

@@ -15,7 +15,6 @@ type
     N1: TMenuItem;
     N2: TMenuItem;
     N3: TMenuItem;
-    N4: TMenuItem;
     N5: TMenuItem;
     N6: TMenuItem;
     N7: TMenuItem;
@@ -42,6 +41,9 @@ type
     procedure N13Click(Sender: TObject);
     procedure N8Click(Sender: TObject);
     procedure N20Click(Sender: TObject);
+    procedure N11Click(Sender: TObject);
+    procedure N18Click(Sender: TObject);
+    procedure N17Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,7 +57,14 @@ implementation
 
 {$R *.dfm}
 
-uses prodagi, rsklad, kursval, rzakaz, Unit2, Unit17, client, addnakls, rpostav;
+uses prodagi, rsklad, kursval, rzakaz, Unit2, Unit17, client, addnakls, rpostav,
+  poiskzakaza, ABOUT, adduslgu;
+
+procedure Tmain.N11Click(Sender: TObject);
+begin
+if (not Assigned(zakazpoisk)) then zakazpoisk:=Tzakazpoisk.Create(Self);
+zakazpoisk.show;
+end;
 
 procedure Tmain.N12Click(Sender: TObject);
 begin
@@ -105,6 +114,20 @@ begin
 if (not Assigned(dusluga)) then
 dusluga:=Tdusluga.Create(Self);
 dusluga.show;
+end;
+
+procedure Tmain.N17Click(Sender: TObject);
+begin
+if (not Assigned(adduslg)) then
+adduslg:=Tadduslg.Create(Self);
+adduslg.show;
+end;
+
+procedure Tmain.N18Click(Sender: TObject);
+begin
+if (not Assigned(AboutBox)) then
+AboutBox:=TAboutBox.Create(Self);
+AboutBox.show;
 end;
 
 procedure Tmain.N19Click(Sender: TObject);

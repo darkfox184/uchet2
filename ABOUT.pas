@@ -1,0 +1,137 @@
+unit About;
+
+interface
+
+uses WinApi.Windows, System.SysUtils, System.Classes, Vcl.Graphics,
+  Vcl.Forms, Vcl.Controls, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  TAboutBox = class(TForm)
+    Panel1: TPanel;
+    ProgramIcon: TImage;
+    ListBox1: TListBox;
+    procedure FormCreate(Sender: TObject);
+
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AboutBox: TAboutBox;
+
+implementation
+
+{$R *.dfm}
+
+function StringPad(
+   InputStr,
+   FillChar: string;
+   StrLen: integer;
+   StrJustify: boolean): string;
+var
+   TempFill: string;
+   Counter : integer;
+begin
+   if not (Length(InputStr) = StrLen) then
+   begin
+     if Length(InputStr) > StrLen then
+     begin
+       InputStr := Copy(InputStr, 1, StrLen) ;
+     end
+     else
+     begin
+       TempFill := '';
+       for Counter := 1 to StrLen - Length(InputStr) do
+       begin
+         TempFill := TempFill + FillChar;
+       end;
+       if StrJustify then
+       begin
+         { Выравнивание по левому краю }
+         InputStr := InputStr + TempFill;
+       end
+       else
+       begin
+         { Выравнивание по правому краю }
+         InputStr := TempFill + InputStr ;
+       end;
+     end;
+   end;
+   result := InputStr;
+end;
+
+
+function VersionInformation(
+   ListBox : TListBox): boolean;
+const
+   InfoNum = 11;
+   InfoStr : array [1..InfoNum] of string =
+     ('Company Name', 'FileDescription', 'FileVersion',
+'InternalName', 'LegalCopyright', 'LegalTradeMarks',
+'OriginalFilename', 'ProductName', 'ProductVersion',
+'Comments', 'Author') ;
+   LabelStr : array [1..InfoNum] of string =
+     ('Company Name', 'Description', 'File Version',
+'Internal Name', 'Copyright', 'TradeMarks',
+'Original File Name', 'Product Name',
+'Product Version', 'Comments', 'Author') ;
+var
+   S : string;
+   j : integer;
+   n, Len : cardinal;
+   Buf : PChar;
+   Value : PChar;
+begin
+   try
+     S := Application.ExeName;
+     ListBox.Items.Clear;
+     ListBox.Sorted := true;
+     ListBox.Font.Name := 'Courier New';
+     n := GetFileVersionInfoSize(PChar(S), n) ;
+     if n > 0 then begin
+       Buf := AllocMem(n) ;
+       ListBox.Items.Add
+        (StringPad('Size', ' ', 20, true) + ' = ' + IntToStr(n)) ;
+       GetFileVersionInfo(PChar(S), 0, n, Buf) ;
+       for j := 1 to InfoNum do begin
+         if VerQueryValue(Buf, PChar('StringFileInfo\041904E3\'+
+                           InfoStr[j]), Pointer(Value), Len) then
+         begin
+           Value := PChar(Trim(Value)) ;
+           if Length(Value) > 0 then
+           begin
+             ListBox.Items.Add
+              (StringPad(labelStr[j], ' ', 20, true) + ':' + Value) ;
+           end;
+         end;
+       end;
+       FreeMem(Buf, n) ;
+     end
+     else begin
+       ListBox.Items.Add
+        ('Не найдено FileVersionInfo') ;
+     end;
+     result := true;
+   except
+     result := false;
+   end;
+
+
+end;
+
+
+  procedure TAboutBox.FormCreate(Sender: TObject);
+begin
+VersionInformation(ListBox1);
+end;
+
+end.
+
+
+
+

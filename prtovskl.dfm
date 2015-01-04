@@ -15,7 +15,6 @@ object opskladf: Topskladf
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
-  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
@@ -345,7 +344,7 @@ object opskladf: Topskladf
     TabOrder = 11
   end
   object DBLookupComboBox3: TDBLookupComboBox
-    Left = 500
+    Left = 501
     Top = 241
     Width = 165
     Height = 27

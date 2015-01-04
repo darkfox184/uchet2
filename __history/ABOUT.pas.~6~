@@ -1,0 +1,165 @@
+unit About;
+
+interface
+
+uses WinApi.Windows, System.SysUtils, System.Classes, Vcl.Graphics,
+  Vcl.Forms, Vcl.Controls, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TAboutBox = class(TForm)
+    Panel1: TPanel;
+    ProgramIcon: TImage;
+    Memo1: TMemo;
+    Button1: TButton;
+    Label1: TLabel;
+
+
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AboutBox: TAboutBox;
+
+implementation
+
+{$R *.dfm}
+function MyVersion(Files: string): string;
+
+var
+
+  Buffer: string;
+
+  fInfoSize: DWORD;
+
+  function InitVersion: boolean;
+
+  var
+
+    FilenamePointer: PChar;
+
+  begin
+
+    Result := True;
+
+    FilenamePointer := PChar(Files);
+
+    fInfoSize := GetFileVersionInfoSize(FilenamePointer, fInfoSize);
+
+    if fInfoSize > 0 then
+
+    begin
+
+      SetLength(Buffer, fInfoSize);
+
+      if not GetFileVersionInfo(FilenamePointer, 0, fInfoSize, PChar(Buffer))
+
+        then
+
+      begin
+
+        Result := False;
+
+      end;
+
+    end; //if
+
+  end; //InitVersion
+  function GetVersion(whatToGet: string): string;
+
+  var
+
+    tmpVersion: string;
+
+    Len, Len2: DWORD;
+
+    Value: PChar;
+
+    temp: PLongInt;
+
+    tempStr: string;
+
+  begin
+
+    Result := '';
+
+    if fInfoSize > 0 then
+
+    begin
+
+      SetLength(tmpVersion, 200);
+
+      Value := @tmpVersion;
+
+      VerQueryValue(PChar(Buffer), '\VarFileInfo\Translation', Pointer(temp),
+
+        Len2);
+
+      tempStr := Format('%s%.4x%.4x\%s%s', ['\StringFileInfo\', LoWord(temp^),
+
+        HiWord(temp^), whattoget, #0]);
+
+      if VerQueryValue(PChar(Buffer), PChar(tempStr), Pointer(Value), Len) then
+
+        Result := Value;
+
+    end; // if
+
+  end; //getversion
+
+begin
+
+  Buffer := '';
+
+  try
+
+    InitVersion;
+
+    result := GetVersion('ProductVersion');
+
+  except
+
+    Result := '';
+
+  end;
+
+end;
+
+procedure TAboutBox.Button1Click(Sender: TObject);
+
+const
+  InfoNum = 10;
+  InfoStr: array[1..InfoNum] of string = ('CompanyName', 'FileDescription', 'FileVersion', 'InternalName', 'LegalCopyright', 'LegalTradeMarks', 'OriginalFileName', 'ProductName', 'ProductVersion', 'Comments');
+var
+  S: string;
+  n, Len, i: DWORD;
+  Buf: PChar;
+  Value: PChar;
+begin
+Label1.Caption:=MyVersion(ParamStr(0));
+  S := Application.ExeName;
+  n := GetFileVersionInfoSize(PChar(S), n);
+  if n > 0 then
+  begin
+
+    Buf := AllocMem(n);
+    Memo1.Lines.Add('VersionInfoSize = ' + IntToStr(n));
+    GetFileVersionInfo(PChar(S), 0, n, Buf);
+    for i := 1 to InfoNum do
+      if VerQueryValue(Buf, PChar('StringFileInfo\040904E4\' + InfoStr[i]), Pointer(Value), Len) then
+      begin
+        Memo1.Lines.Add(InfoStr[i] + ' = ' + Value);
+    FreeMem(Buf, n);
+      end;
+  end
+  else
+    Memo1.Lines.Add('No version information found');
+end;
+  end.
+
+
+
+

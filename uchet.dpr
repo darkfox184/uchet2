@@ -14,7 +14,7 @@ uses
   rsklprod in 'rsklprod.pas' {prodaga},
   redtovskl in 'redtovskl.pas' {redsklad},
   dobavltov in 'dobavltov.pas' {dsklad},
-  rzakaz in 'rzakaz.pas' {zakaz},
+  poiskzakaza in 'poiskzakaza.pas' {zakazpoisk},
   dzakaztov in 'dzakaztov.pas' {dzakaz},
   rezakaz in 'rezakaz.pas' {redzakaz},
   prtovskl in 'prtovskl.pas' {opskladf},
@@ -28,7 +28,10 @@ uses
   rpostav in 'rpostav.pas' {postav},
   rpostadd in 'rpostadd.pas' {postadd},
   rredpost in 'rredpost.pas' {redpost},
-  poiskzakaza in 'poiskzakaza.pas' {Form4};
+  ABOUT in 'ABOUT.pas' {AboutBox},
+  adduslgu in 'adduslgu.pas' {adduslg},
+  adduslga in 'adduslga.pas' {adduslgaf},
+  reduslg in 'reduslg.pas' {reduslgf};
 
 {$R *.res}
 
@@ -38,6 +41,9 @@ begin
   Application.CreateForm(Tmain, main);
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TDataModule2, DataModule2);
-  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TAboutBox, AboutBox);
+  Application.CreateForm(Tadduslg, adduslg);
+  Application.CreateForm(Tadduslgaf, adduslgaf);
+  Application.CreateForm(Treduslgf, reduslgf);
   Application.Run;
 end.

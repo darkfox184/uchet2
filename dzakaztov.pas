@@ -22,7 +22,6 @@ type
     Edit8: TEdit;
     Edit9: TEdit;
     dskbtn: TButton;
-    Button2: TButton;
     ComboBox1: TComboBox;
     DateTimePicker2: TDateTimePicker;
     DBLookupComboBox3: TDBLookupComboBox;

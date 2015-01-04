@@ -34,9 +34,9 @@ object dzakaz: Tdzakaz
   object Label5: TLabel
     Left = 223
     Top = 0
-    Width = 130
+    Width = 68
     Height = 19
-    Caption = #1057#1077#1088#1080#1081#1085#1099#1081' '#1085#1086#1084#1077#1088':'
+    Caption = #1040#1088#1090#1080#1082#1091#1083':'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -188,7 +188,7 @@ object dzakaz: Tdzakaz
     TabOrder = 4
   end
   object dskbtn: TButton
-    Left = 373
+    Left = 479
     Top = 241
     Width = 141
     Height = 27
@@ -202,21 +202,6 @@ object dzakaz: Tdzakaz
     TabOrder = 5
     OnClick = dskbtnClick
   end
-  object Button2: TButton
-    Left = 535
-    Top = 241
-    Width = 93
-    Height = 27
-    Caption = #1054#1090#1084#1077#1085#1072
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 6
-    OnClick = Button2Click
-  end
   object ComboBox1: TComboBox
     Left = 480
     Top = 105
@@ -228,7 +213,7 @@ object dzakaz: Tdzakaz
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 6
     Items.Strings = (
       #1050#1091#1083#1080#1082' '#1042'.'#1048'.'
       #1050#1086#1079#1072#1095#1091#1082' '#1042'.'#1055'.')
@@ -247,7 +232,7 @@ object dzakaz: Tdzakaz
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 7
   end
   object DBLookupComboBox3: TDBLookupComboBox
     Left = 0
@@ -260,6 +245,6 @@ object dzakaz: Tdzakaz
     ListSource = DataModule2.clients_DataSource
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 9
+    TabOrder = 8
   end
 end

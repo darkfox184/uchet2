@@ -12,7 +12,6 @@ object zakaz: Tzakaz
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
-  ShowHint = False
   OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96
