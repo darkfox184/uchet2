@@ -4,8 +4,8 @@ object main: Tmain
   Align = alClient
   AutoSize = True
   Caption = #1042'2'#1042' 2'#1057' - '#1059#1095#1077#1090' '#1090#1086#1074#1072#1088#1072'  "'#1050#1086#1084#1087#1100#1102#1090#1077#1088#1085#1072#1103' '#1090#1077#1093#1085#1080#1082#1072'" - ver. 2.0 rc1'
-  ClientHeight = 448
-  ClientWidth = 709
+  ClientHeight = 860
+  ClientWidth = 1280
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object main: Tmain
   object Image1: TImage
     Left = 0
     Top = 0
-    Width = 709
-    Height = 448
+    Width = 1280
+    Height = 860
     Align = alClient
     Center = True
     Picture.Data = {
@@ -37454,17 +37454,18 @@ object main: Tmain
       D9C8DBEBD0F6241EDC2C12373D3631D09D8646C368F7DB3C738E71206C3E4381
       C2813DF6EDDBBFB8D819C4CEC278500D87B7F6189FF7B676E39C73873A47FF00
       89D5F5E071FFD9}
-    ExplicitLeft = -8
-    ExplicitTop = -8
+    ExplicitLeft = 8
+    ExplicitWidth = 1920
+    ExplicitHeight = 1042
   end
   object MainMenu1: TMainMenu
-    Left = 664
-    Top = 328
+    Left = 1072
+    Top = 608
     object Af1: TMenuItem
       Caption = #1060#1072#1081#1083
-      object N6: TMenuItem
-        Caption = #1047#1072#1082#1088#1099#1090#1100
-        OnClick = N6Click
+      object N24: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = N24Click
       end
     end
     object N1: TMenuItem
@@ -37506,6 +37507,14 @@ object main: Tmain
     end
     object N14: TMenuItem
       Caption = #1056#1072#1073#1086#1090#1072' '#1089' '#1087#1072#1088#1090#1085#1077#1088#1072#1084#1080
+      object N4: TMenuItem
+        Caption = #1047#1072#1082#1072#1079' '#1087#1072#1088#1090#1085#1077#1088#1072
+        OnClick = N4Click
+      end
+      object N21: TMenuItem
+        Caption = #1054#1090#1075#1088#1091#1078#1077#1085#1085#1099#1077' '#1079#1072#1082#1072#1079#1099
+        OnClick = N21Click
+      end
     end
     object N10: TMenuItem
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072
@@ -37524,6 +37533,25 @@ object main: Tmain
       object N17: TMenuItem
         Caption = #1059#1089#1083#1091#1075#1080
         OnClick = N17Click
+      end
+    end
+    object N22: TMenuItem
+      Caption = #1054#1082#1085#1072
+      object N23: TMenuItem
+        Caption = #1050#1072#1089#1082#1072#1076#1086#1084
+        OnClick = N23Click
+      end
+      object ile1: TMenuItem
+        Caption = #1052#1086#1079#1072#1080#1082#1072
+        OnClick = ile1Click
+      end
+      object N25: TMenuItem
+        Caption = #1057#1083#1077#1076#1091#1102#1097#1077#1077
+        OnClick = N25Click
+      end
+      object N26: TMenuItem
+        Caption = #1055#1088#1077#1076#1080#1076#1091#1097#1077#1077
+        OnClick = N26Click
       end
     end
     object N5: TMenuItem

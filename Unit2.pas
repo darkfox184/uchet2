@@ -48,6 +48,8 @@ type
     DataSource1: TDataSource;
     sum_Query: TFDQuery;
     opzakaz_Query: TFDQuery;
+    pzakaz_Query: TFDQuery;
+    pzakaz_DataSource: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

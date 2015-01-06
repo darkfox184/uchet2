@@ -12,6 +12,8 @@ object prtovar: Tprtovar
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  Visible = True
+  WindowState = wsMaximized
   OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 19
@@ -23,8 +25,6 @@ object prtovar: Tprtovar
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 10
-    ExplicitWidth = 1286
-    ExplicitHeight = 466
   end
   object Panel1: TPanel
     Left = 0
@@ -33,7 +33,6 @@ object prtovar: Tprtovar
     Height = 73
     Align = alTop
     TabOrder = 9
-    ExplicitTop = -6
   end
   object DBGrid1: TDBGrid
     Left = 0

@@ -184,8 +184,8 @@ object DataModule2: TDataModule2
     Connection = FDConnection1
     SQL.Strings = (
       '')
-    Left = 416
-    Top = 528
+    Left = 424
+    Top = 536
   end
   object post_DataSource1: TDataSource
     DataSet = post_Query1
@@ -222,5 +222,15 @@ object DataModule2: TDataModule2
     Connection = FDConnection1
     Left = 248
     Top = 384
+  end
+  object pzakaz_Query: TFDQuery
+    Connection = FDConnection1
+    Left = 536
+    Top = 368
+  end
+  object pzakaz_DataSource: TDataSource
+    DataSet = pzakaz_Query
+    Left = 632
+    Top = 368
   end
 end

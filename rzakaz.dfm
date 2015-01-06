@@ -12,15 +12,17 @@ object zakaz: Tzakaz
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  Visible = True
+  WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 19
   object Panel2: TPanel
     Left = 0
-    Top = 73
+    Top = 89
     Width = 1237
-    Height = 428
+    Height = 412
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 0
@@ -29,7 +31,7 @@ object zakaz: Tzakaz
     Left = 0
     Top = 0
     Width = 1237
-    Height = 73
+    Height = 89
     Align = alTop
     TabOrder = 1
     object Label1: TLabel
@@ -82,10 +84,10 @@ object zakaz: Tzakaz
       Caption = '20,5'
     end
     object Button5: TButton
-      Left = 447
+      Left = 311
       Top = 8
       Width = 130
-      Height = 50
+      Height = 74
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -96,12 +98,21 @@ object zakaz: Tzakaz
       TabOrder = 0
       OnClick = Button5Click
     end
+    object Button1: TButton
+      Left = 447
+      Top = 8
+      Width = 114
+      Height = 34
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+      TabOrder = 1
+      OnClick = Button1Click
+    end
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 73
+    Top = 89
     Width = 1237
-    Height = 428
+    Height = 412
     Align = alClient
     DataSource = DataModule2.zakaz_DataSource
     Font.Charset = DEFAULT_CHARSET
@@ -200,7 +211,7 @@ object zakaz: Tzakaz
     Left = 8
     Top = 8
     Width = 146
-    Height = 50
+    Height = 74
     Caption = #1054#1087#1088#1080#1093#1086#1076#1086#1074#1072#1090#1100
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -215,7 +226,7 @@ object zakaz: Tzakaz
     Left = 160
     Top = 8
     Width = 145
-    Height = 51
+    Height = 74
     Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -227,10 +238,10 @@ object zakaz: Tzakaz
     OnClick = Button2Click
   end
   object Button6: TButton
-    Left = 311
-    Top = 8
-    Width = 130
-    Height = 50
+    Left = 447
+    Top = 48
+    Width = 114
+    Height = 34
     Caption = #1059#1076#1072#1083#1080#1090#1100
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

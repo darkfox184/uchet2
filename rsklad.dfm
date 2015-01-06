@@ -12,6 +12,8 @@ object sklad: Tsklad
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  Visible = True
+  WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96

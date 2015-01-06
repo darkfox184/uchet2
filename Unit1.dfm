@@ -1,10 +1,12 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  AutoSize = True
   BorderStyle = bsNone
+  BorderWidth = 10
   Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103' - '#1042'2'#1042' 2'#1057' - '#1059#1095#1077#1090' '#1090#1086#1074#1072#1088#1072'  "'#1050#1086#1084#1087#1100#1102#1090#1077#1088#1085#1072#1103' '#1090#1077#1093#1085#1080#1082#1072'"'
-  ClientHeight = 286
-  ClientWidth = 435
+  ClientHeight = 256
+  ClientWidth = 407
   Color = clBtnFace
   DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
@@ -20,22 +22,22 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 19
   object Label1: TLabel
-    Left = 270
-    Top = 32
+    Left = 262
+    Top = 24
     Width = 51
     Height = 19
     Caption = #1051#1086#1075#1080#1085':'
   end
   object Label2: TLabel
-    Left = 270
-    Top = 104
+    Left = 262
+    Top = 96
     Width = 60
     Height = 19
     Caption = #1055#1072#1088#1086#1083#1100':'
   end
   object Image1: TImage
-    Left = 8
-    Top = 8
+    Left = 0
+    Top = 0
     Width = 256
     Height = 256
     AutoSize = True
@@ -2535,32 +2537,36 @@ object Form1: TForm1
       82}
   end
   object Edit1: TEdit
-    Left = 270
-    Top = 57
+    Left = 262
+    Top = 49
     Width = 145
     Height = 27
     TabOrder = 0
-    Text = 'admin'
     TextHint = #1051#1086#1075#1080#1085
   end
   object Edit2: TEdit
-    Left = 270
-    Top = 129
+    Left = 262
+    Top = 121
     Width = 145
     Height = 27
     PasswordChar = '*'
     TabOrder = 1
-    Text = 'Veritas'
     TextHint = #1055#1072#1088#1086#1083#1100
   end
   object Button1: TButton
-    Left = 340
-    Top = 177
+    Left = 332
+    Top = 169
     Width = 75
     Height = 25
     Caption = #1042#1086#1081#1090#1080
     Default = True
     TabOrder = 2
     OnClick = Button1Click
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    ScreenCursor = gcrDefault
+    Left = 328
+    Top = 208
   end
 end

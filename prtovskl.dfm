@@ -134,19 +134,6 @@ object opskladf: Topskladf
     Font.Style = []
     ParentFont = False
   end
-  object Label3: TLabel
-    Left = 587
-    Top = 0
-    Width = 78
-    Height = 19
-    Caption = #1055#1086#1083#1091#1095#1077#1085#1086':'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object Label4: TLabel
     Left = 339
     Top = 216
@@ -314,22 +301,6 @@ object opskladf: Topskladf
     ReadOnly = True
     TabOrder = 9
   end
-  object poluch: TComboBox
-    Left = 587
-    Top = 25
-    Width = 81
-    Height = 27
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 10
-    Items.Strings = (
-      #1076#1072
-      #1085#1077#1090)
-  end
   object snomer: TEdit
     Left = 339
     Top = 241
@@ -341,7 +312,7 @@ object opskladf: Topskladf
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 10
   end
   object DBLookupComboBox3: TDBLookupComboBox
     Left = 501
@@ -360,7 +331,7 @@ object opskladf: Topskladf
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 12
+    TabOrder = 11
   end
   object DBLookupComboBox1: TDBLookupComboBox
     Left = 0
@@ -379,6 +350,6 @@ object opskladf: Topskladf
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 13
+    TabOrder = 12
   end
 end

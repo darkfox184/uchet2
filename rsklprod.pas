@@ -64,7 +64,7 @@ procedure Tprodaga.saveClick(Sender: TObject);
 begin
 kollpr:=strtoint(edit3.Text);
 if koll=kollpr then  begin
-DataModule2.tovar_Query.Active:=false;
+
 DataModule2.redtovp_save_Query1.SQL.Clear;
 DataModule2.redtovp_save_Query1.SQL.Add ('INSERT INTO tovar (dateb,datepr,nomer,description,pricez,pricep,garb,gark,nomgart,fio,prodavec,koll ) VALUES(:dateb,:datepr,:nomer,:description,:pricez,:pricep,:garb,:gark,:nomgart,:fio,:prodavec,:koll) ');
 DataModule2.redtovp_save_Query1.ParamByName('dateb').AsDate:=DateTimePicker2.DateTime;
@@ -84,8 +84,6 @@ DataModule2.del_tov_Query.SQL.Clear;
 DataModule2.del_tov_Query.SQL.Add ('DELETE FROM sklad where id=:in3');
 DataModule2.del_tov_Query.ParamByName('in3').AsString:=edit7.text;;
 DataModule2.del_tov_Query.ExecSQL;
-DataModule2.tovar_Query.Active:=true;
-DataModule2.tovar_Query.Refresh;
 DataModule2.sklad_Query.Refresh;
 
 end

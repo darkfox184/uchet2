@@ -1,0 +1,61 @@
+object Data8: TData8
+  OldCreateOrder = False
+  Height = 340
+  Width = 675
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Server=foxvaler.mysql.ukraine.com.ua'
+      'Password=xqn3y6hf'
+      'User_Name=foxvaler_copm'
+      'Database=foxvaler_copm'
+      'CharacterSet=cp1251'
+      'DriverID=MySQL')
+    LoginPrompt = False
+    Left = 32
+    Top = 16
+  end
+  object zakaz_Query: TFDQuery
+    Connection = FDConnection1
+    Left = 128
+    Top = 12
+  end
+  object zakaz_DataSource: TDataSource
+    DataSet = zakaz_Query
+    Left = 224
+    Top = 12
+  end
+  object sum_Query: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT * FROM `nakladnaya` LIMIT 0 , 10')
+    Left = 320
+    Top = 11
+  end
+  object options_Query: TFDQuery
+    Connection = FDConnection1
+    Left = 400
+    Top = 8
+  end
+  object del_Query: TFDQuery
+    Connection = FDConnection1
+    Left = 504
+    Top = 16
+  end
+  object ins_Query: TFDQuery
+    Connection = FDConnection1
+    Left = 576
+    Top = 16
+  end
+  object clients_Query: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT id, fio FROM  `clients`')
+    Left = 32
+    Top = 92
+  end
+  object clients_DataSource: TDataSource
+    DataSet = clients_Query
+    Left = 120
+    Top = 92
+  end
+end

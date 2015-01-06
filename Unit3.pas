@@ -16,7 +16,6 @@ type
     N2: TMenuItem;
     N3: TMenuItem;
     N5: TMenuItem;
-    N6: TMenuItem;
     N7: TMenuItem;
     N8: TMenuItem;
     N9: TMenuItem;
@@ -31,11 +30,18 @@ type
     N14: TMenuItem;
     N15: TMenuItem;
     N20: TMenuItem;
+    N4: TMenuItem;
+    N21: TMenuItem;
+    N22: TMenuItem;
+    N23: TMenuItem;
+    ile1: TMenuItem;
+    N24: TMenuItem;
+    N25: TMenuItem;
+    N26: TMenuItem;
     procedure N6Click(Sender: TObject);
     procedure N12Click(Sender: TObject);
     procedure N9Click(Sender: TObject);
     procedure N19Click(Sender: TObject);
-    procedure N7Click(Sender: TObject);
     procedure N15Click(Sender: TObject);
     procedure N16Click(Sender: TObject);
     procedure N13Click(Sender: TObject);
@@ -44,6 +50,15 @@ type
     procedure N11Click(Sender: TObject);
     procedure N18Click(Sender: TObject);
     procedure N17Click(Sender: TObject);
+    procedure N4Click(Sender: TObject);
+    procedure N7Click(Sender: TObject);
+    procedure N21Click(Sender: TObject);
+    procedure N23Click(Sender: TObject);
+    procedure ile1Click(Sender: TObject);
+
+    procedure N24Click(Sender: TObject);
+    procedure N25Click(Sender: TObject);
+    procedure N26Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,7 +73,14 @@ implementation
 {$R *.dfm}
 
 uses prodagi, rsklad, kursval, rzakaz, Unit2, Unit17, client, addnakls, rpostav,
-  poiskzakaza, ABOUT, adduslgu;
+  poiskzakaza, ABOUT, adduslgu, partzakaz, poiskotgrugen;
+
+
+
+procedure Tmain.ile1Click(Sender: TObject);
+begin
+Tile;
+end;
 
 procedure Tmain.N11Click(Sender: TObject);
 begin
@@ -144,20 +166,58 @@ postav:=Tpostav.Create(Self);
 postav.show;
 end;
 
-procedure Tmain.N6Click(Sender: TObject);
+procedure Tmain.N21Click(Sender: TObject);
 begin
-main.Close;
+if (not Assigned(otgrpoisk)) then
+otgrpoisk:=Totgrpoisk.Create(Self);
+otgrpoisk.show;
+end;
+
+procedure Tmain.N23Click(Sender: TObject);
+begin
+ Cascade;
+end;
+
+procedure Tmain.N24Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tmain.N25Click(Sender: TObject);
+begin
+next;
+end;
+
+procedure Tmain.N26Click(Sender: TObject);
+begin
+Previous;
+end;
+
+procedure Tmain.N4Click(Sender: TObject);
+begin
+if (not Assigned(zakazpart)) then
+zakazpart:=Tzakazpart.Create(Self);
+zakazpart.show;
+end;
+
+procedure Tmain.N6Click(Sender: TObject);
+var i: integer;
+begin
+for i:= 0 to MdiChildCount - 1 do
+  MDIChildren[i].Close;
 end;
 
 procedure Tmain.N7Click(Sender: TObject);
+
 begin
-if (not Assigned(zakaz)) then
-zakaz:=Tzakaz.Create(Self);
+if (not Assigned(zakaz)) then zakaz:=Tzakaz.Create(Self);
 zakaz.show;
 end;
 
 procedure Tmain.N8Click(Sender: TObject);
+
 begin
+
 if (not Assigned(addnakl)) then
 addnakl:=Taddnakl.Create(Self);
 addnakl.show;

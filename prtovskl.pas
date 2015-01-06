@@ -27,8 +27,6 @@ type
     datez: TDateTimePicker;
     id: TEdit;
     Label1: TLabel;
-    Label3: TLabel;
-    poluch: TComboBox;
     snomer: TEdit;
     Label4: TLabel;
     Label11: TLabel;
@@ -48,11 +46,11 @@ implementation
 
 {$R *.dfm}
 
-uses Unit2;
+uses Unit2, rzakaz;
 
 procedure Topskladf.dskbtnClick(Sender: TObject);
 begin
-DataModule2.sklad_Query.Active:=false;
+
 DataModule2.redtovp_save_Query1.SQL.Clear;
 DataModule2.redtovp_save_Query1.SQL.Add ('INSERT INTO sklad (dateb,nomer,description,pricez,garb,fio,prodavec,koll ) VALUES(:datez,:nomer,:description,:pricez,:garb,:fio,:prodavec,:koll) ');
 DataModule2.redtovp_save_Query1.ParamByName('datez').AsDate:=datez.DateTime;
@@ -77,11 +75,12 @@ DataModule2.opzakaz_Query.ParamByName('prodavec').AsString:=prodavec.Text;
 DataModule2.opzakaz_Query.ParamByName('id').AsString:=id.text;
 DataModule2.opzakaz_Query.ParamByName('snomer').AsString:=snomer.text;
 DataModule2.opzakaz_Query.ParamByName('nakladnaya').AsString:=DBLookupComboBox3.text;
-DataModule2.opzakaz_Query.ParamByName('poluch').AsString:=poluch.Text;
+DataModule2.opzakaz_Query.ParamByName('poluch').AsString:='да';
 DataModule2.opzakaz_Query.ExecSQL;
 DataModule2.zakaz_Query.Refresh;
-DataModule2.sklad_Query.Active:=true;
-DataModule2.sklad_Query.Refresh;
+
+
+
 
 close;
 end;

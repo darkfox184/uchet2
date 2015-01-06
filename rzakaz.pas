@@ -23,13 +23,15 @@ type
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure Button5Click(Sender: TObject);
-    procedure refreshClick(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure oprihodovatClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -44,6 +46,24 @@ implementation
 {$R *.dfm}
 
 uses Unit2, dzakaztov, rezakaz, prtovskl;
+
+procedure Tzakaz.Button1Click(Sender: TObject);
+begin
+DataModule2.zakaz_Query.SQL.Clear;
+DataModule2.zakaz_Query.SQL.Add ('SELECT zakaz.id, zakaz.nomer, zakaz.datez, zakaz.pricez, zakaz.koll, zakaz.fio, zakaz.description, zakaz.prodavec, zakaz.garb, options.valuta, zakaz.pricez*options.valuta as prisegrn  FROM zakaz, options where zakaz.poluch =:poluch ');
+DataModule2.zakaz_Query.ParamByName('poluch').Value:='нет';
+DataModule2.zakaz_Query.open;
+DataModule2.sum_Query.SQL.Clear;
+DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
+DataModule2.sum_Query.Open;
+label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;
+label7.Caption:=DataModule2.sum_Query.Fields[4].AsString;
+DataModule2.options_Query.SQL.Clear;
+DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
+DataModule2.options_Query.open;
+label2.Caption:=DataModule2.options_Query.Fields[0].AsString;
+end;
 
 procedure Tzakaz.Button2Click(Sender: TObject);
 begin
@@ -117,6 +137,10 @@ DataModule2.options_Query.open;
 label2.Caption:=DataModule2.options_Query.Fields[0].AsString;
 end;
 
+
+
+
+
 procedure Tzakaz.FormCreate(Sender: TObject);
 begin
 DataModule2.zakaz_Query.SQL.Clear;
@@ -157,23 +181,11 @@ opskladf.pricez.Text:=DataModule2.retovp_Query1.Fields[4].AsString;
 opskladf.koll.Text:=DataModule2.retovp_Query1.Fields[8].AsString;
 opskladf.datez.DateTime:=DataModule2.retovp_Query1.Fields[1].AsDateTime;
 opskladf.prodavec.Text:=DataModule2.retovp_Query1.Fields[6].AsString;
-opskladf.poluch.Text:=DataModule2.retovp_Query1.Fields[10].AsString;
 opskladf.snomer.Text:=DataModule2.retovp_Query1.Fields[9].AsString;
 DataModule2.clients_Query.Refresh;
 DataModule2.post_Query.Active:=true;
 opskladf.showmodal;
 end;
 
-procedure Tzakaz.refreshClick(Sender: TObject);
-begin
-DataModule2.zakaz_Query.SQL.Clear;
-DataModule2.zakaz_Query.SQL.Add ('SELECT zakaz.id, zakaz.nomer, zakaz.datez, zakaz.pricez, zakaz.koll, zakaz.fio, zakaz.description, zakaz.prodavec, zakaz.garb, options.valuta, zakaz.pricez*options.valuta as prisegrn  FROM zakaz, options where zakaz.poluch =:poluch ');
-DataModule2.zakaz_Query.ParamByName('poluch').Value:='нет';
-DataModule2.zakaz_Query.open;
-DataModule2.options_Query.SQL.Clear;
-DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
-DataModule2.options_Query.open;
-label2.Caption:=DataModule2.options_Query.Fields[0].AsString;
-end;
 
 end.

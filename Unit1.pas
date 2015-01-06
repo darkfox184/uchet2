@@ -16,6 +16,7 @@ type
     Edit2: TEdit;
     Button1: TButton;
     Image1: TImage;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6113A7DC-39D1-48CC-9564-AF9AB098E4EF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="uchet.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\uchet_client\uchet_client.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="uchet">
+        <MSBuild Projects="uchet.dproj"/>
+    </Target>
+    <Target Name="uchet:Clean">
+        <MSBuild Projects="uchet.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="uchet:Make">
+        <MSBuild Projects="uchet.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="uchet_client">
+        <MSBuild Projects="..\uchet_client\uchet_client.dproj"/>
+    </Target>
+    <Target Name="uchet_client:Clean">
+        <MSBuild Projects="..\uchet_client\uchet_client.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="uchet_client:Make">
+        <MSBuild Projects="..\uchet_client\uchet_client.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="uchet;uchet_client"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="uchet:Clean;uchet_client:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="uchet:Make;uchet_client:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

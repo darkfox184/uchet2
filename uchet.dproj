@@ -86,14 +86,14 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <VerInfo_Build>62396</VerInfo_Build>
+        <VerInfo_Build>18813</VerInfo_Build>
         <VerInfo_Release>5482</VerInfo_Release>
         <Icon_MainIcon>uchet_Icon.ico</Icon_MainIcon>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_DLL>true</VerInfo_DLL>
         <VerInfo_PreRelease>true</VerInfo_PreRelease>
         <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
-        <VerInfo_Keys>CompanyName=Fox IT Lab;FileDescription=;FileVersion=2.0.5482.62396;InternalName=;LegalCopyright=Fox IT Lab;LegalTrademarks=;OriginalFilename=;ProductName=В2В 2С - Учет товара  &quot;Компьютерная техника&quot;;ProductVersion=2.0.5482.62396;Comments=Realise Candidate</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Fox IT Lab;FileDescription=;FileVersion=2.0.5482.18813;InternalName=;LegalCopyright=Fox IT Lab;LegalTrademarks=;OriginalFilename=;ProductName=В2В 2С - Учет товара  &quot;Компьютерная техника&quot;;ProductVersion=2.0.5482.18813;Comments=Realise Candidate</VerInfo_Keys>
         <VerInfo_MajorVer>2</VerInfo_MajorVer>
         <VerInfo_Locale>1049</VerInfo_Locale>
     </PropertyGroup>
@@ -220,6 +220,34 @@
         </DCCReference>
         <DCCReference Include="reduslg.pas">
             <Form>reduslgf</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="rzakaz.pas">
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="partzakaz.pas">
+            <Form>zakazpart</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="data8_1.pas">
+            <Form>Data8</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="partndzakaz.pas">
+            <Form>partdzakaz</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="partnrezakaz.pas">
+            <Form>partnredzakaz</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="otgruzdil.pas">
+            <Form>dilotgruz</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="poiskotgrugen.pas">
+            <Form>otgrpoisk</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

@@ -31,7 +31,14 @@ uses
   ABOUT in 'ABOUT.pas' {AboutBox},
   adduslgu in 'adduslgu.pas' {adduslg},
   adduslga in 'adduslga.pas' {adduslgaf},
-  reduslg in 'reduslg.pas' {reduslgf};
+  reduslg in 'reduslg.pas' {reduslgf},
+  rzakaz in 'rzakaz.pas',
+  partzakaz in 'partzakaz.pas' {zakazpart},
+  data8_1 in 'data8_1.pas' {Data8: TDataModule},
+  partndzakaz in 'partndzakaz.pas' {partdzakaz},
+  partnrezakaz in 'partnrezakaz.pas' {partnredzakaz},
+  otgruzdil in 'otgruzdil.pas' {dilotgruz},
+  poiskotgrugen in 'poiskotgrugen.pas' {otgrpoisk};
 
 {$R *.res}
 
@@ -41,9 +48,10 @@ begin
   Application.CreateForm(Tmain, main);
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TDataModule2, DataModule2);
-  Application.CreateForm(TAboutBox, AboutBox);
-  Application.CreateForm(Tadduslg, adduslg);
-  Application.CreateForm(Tadduslgaf, adduslgaf);
-  Application.CreateForm(Treduslgf, reduslgf);
+  Application.CreateForm(TData8, Data8);
+  Application.CreateForm(Tpartdzakaz, partdzakaz);
+  Application.CreateForm(Tpartnredzakaz, partnredzakaz);
+  Application.CreateForm(Tdilotgruz, dilotgruz);
+  Application.CreateForm(Totgrpoisk, otgrpoisk);
   Application.Run;
 end.
