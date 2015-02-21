@@ -11,19 +11,20 @@ type
   Tzakaz = class(TForm)
     Panel2: TPanel;
     Panel1: TPanel;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
     Button5: TButton;
     DBGrid1: TDBGrid;
     oprihodovat: TButton;
     Button2: TButton;
     Button6: TButton;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
     Button1: TButton;
+    GroupBox1: TGroupBox;
+    Label7: TLabel;
+    Label5: TLabel;
+    Label4: TLabel;
+    Label6: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
@@ -111,10 +112,30 @@ DataModule2.del_tov_Query.SQL.Add ('DELETE FROM zakaz where id=:in3');
 DataModule2.del_tov_Query.ParamByName('in3').AsString:=DBGrid1.Fields[0].AsString;
 DataModule2.del_tov_Query.ExecSQL;
 DataModule2.zakaz_Query.Refresh;
+DataModule2.sum_Query.SQL.Clear;
+DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
+DataModule2.sum_Query.Open;
+label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;
+label7.Caption:=DataModule2.sum_Query.Fields[4].AsString;
+DataModule2.options_Query.SQL.Clear;
+DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
+DataModule2.options_Query.open;
+label2.Caption:=DataModule2.options_Query.Fields[0].AsString;
   end;
 if buttonSelected = mrCancel then
 begin
  DataModule2.zakaz_Query.Refresh;
+ DataModule2.sum_Query.SQL.Clear;
+DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
+DataModule2.sum_Query.Open;
+label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;
+label7.Caption:=DataModule2.sum_Query.Fields[4].AsString;
+DataModule2.options_Query.SQL.Clear;
+DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
+DataModule2.options_Query.open;
+label2.Caption:=DataModule2.options_Query.Fields[0].AsString;
   end;
  end;
 

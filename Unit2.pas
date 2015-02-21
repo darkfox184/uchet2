@@ -50,6 +50,10 @@ type
     opzakaz_Query: TFDQuery;
     pzakaz_Query: TFDQuery;
     pzakaz_DataSource: TDataSource;
+    Balans_Query: TFDQuery;
+    Balans_Source: TDataSource;
+    balans2_Query: TFDQuery;
+    balans3_Query: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

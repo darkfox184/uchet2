@@ -38,7 +38,10 @@ uses
   partndzakaz in 'partndzakaz.pas' {partdzakaz},
   partnrezakaz in 'partnrezakaz.pas' {partnredzakaz},
   otgruzdil in 'otgruzdil.pas' {dilotgruz},
-  poiskotgrugen in 'poiskotgrugen.pas' {otgrpoisk};
+  poiskotgrugen in 'poiskotgrugen.pas' {otgrpoisk},
+  kassaord in 'kassaord.pas' {orderkassa},
+  sozdatorder2 in 'sozdatorder2.pas' {sozdatorder},
+  balanskorekter in 'balanskorekter.pas' {balanskorekt};
 
 {$R *.res}
 
@@ -53,5 +56,8 @@ begin
   Application.CreateForm(Tpartnredzakaz, partnredzakaz);
   Application.CreateForm(Tdilotgruz, dilotgruz);
   Application.CreateForm(Totgrpoisk, otgrpoisk);
+  Application.CreateForm(Torderkassa, orderkassa);
+  Application.CreateForm(Tsozdatorder, sozdatorder);
+  Application.CreateForm(Tbalanskorekt, balanskorekt);
   Application.Run;
 end.

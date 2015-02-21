@@ -31,6 +31,9 @@ type
     procedure saveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Edit8Click(Sender: TObject);
+    procedure Edit4KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit3KeyPress(Sender: TObject; var Key: Char);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,6 +49,23 @@ implementation
 
 uses Unit2, prodagi;
 
+procedure Tdusluga.Button2Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure Tdusluga.Edit3KeyPress(Sender: TObject; var Key: Char);
+begin
+If not (Key in ['0'..'9', #8]) then
+Key:=#0;
+end;
+
+procedure Tdusluga.Edit4KeyPress(Sender: TObject; var Key: Char);
+begin
+If not (Key in ['0'..'9',',','.', #8]) then
+Key:=#0;
+end;
+
 procedure Tdusluga.Edit8Click(Sender: TObject);
 begin
 edit8.text:=floattostr(random(10000000000000));
@@ -53,13 +73,19 @@ end;
 
 procedure Tdusluga.FormCreate(Sender: TObject);
 begin
+DateTimePicker2.Date:=Date;
+DateTimePicker1.Date:=Date;
 DataModule2.clients_Query.Active:=true;
 DataModule2.shet2_FDQuery.Active:=true;
 DataModule2.ucluga_Query.Active:=true;
-edit8.text:=floattostr(random(100000000));
+edit8.text:=floattostr(random(10000000000000));
 end;
 
 procedure Tdusluga.saveClick(Sender: TObject);
+begin
+if (edit8.Text='') or (edit4.Text='')or (edit3.Text='')or (DBLookupComboBox1.Text='')or (DBLookupComboBox2.Text='')or  (edit3.Text='') or (combobox1.Text='')or (DBLookupComboBox3.Text='')  then  begin
+  MessageDlg('Вы не заполнили все поля для оформления услуги!',mtWarning, mbOKCancel, 0)
+end else
 begin
 DataModule2.tovar_Query.Active:=false;
 DataModule2.redtovp_save_Query1.SQL.Clear;
@@ -81,6 +107,7 @@ DataModule2.tovar_Query.Active:=true;
 DataModule2.tovar_Query.Refresh;
 close;
 prtovar.show;
+end;
 end;
 
 end.

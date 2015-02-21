@@ -14,6 +14,7 @@ type
     edit1: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure edit1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -27,7 +28,7 @@ implementation
 
 {$R *.dfm}
 
-uses Unit2, Unit7;
+uses Unit2, Unit7, data8_1;
 
 procedure Toptions.Button1Click(Sender: TObject);
 begin
@@ -35,6 +36,16 @@ DataModule2.options_save_Query.SQL.Clear;
 DataModule2.options_save_Query.SQL.Add ('update options SET valuta = :valuta  WHERE id =1');
 DataModule2.options_save_Query.ParamByName('valuta').Value:=StringReplace(edit1.Text, ',', '.', [rfReplaceAll]);
 DataModule2.options_save_Query.ExecSQL;
+Data8.options_save_Query.SQL.Clear;
+Data8.options_save_Query.SQL.Add ('update options SET valuta = :valuta  WHERE id =1');
+Data8.options_save_Query.ParamByName('valuta').Value:=StringReplace(edit1.Text, ',', '.', [rfReplaceAll]);
+Data8.options_save_Query.ExecSQL;
+end;
+
+procedure Toptions.edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+If not (Key in ['0'..'9',',','.', #8]) then
+Key:=#0;
 end;
 
 procedure Toptions.FormCreate(Sender: TObject);
@@ -42,7 +53,8 @@ begin
 DataModule2.options_Query.SQL.Clear;
 DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
 DataModule2.options_Query.open;
-edit1.Text:=DataModule2.options_Query.Fields[0].AsString;
+
+edit1.Text:=DataModule2.options_Query.Fields[0].asstring;
 end;
 
 end.

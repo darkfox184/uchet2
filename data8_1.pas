@@ -26,6 +26,10 @@ type
     shet_DataSource: TDataSource;
     pzakaz_Query: TFDQuery;
     pzakaz_DataSource: TDataSource;
+    FDConnection2: TFDConnection;
+    insz_Query: TFDQuery;
+    sel3_Query: TFDQuery;
+    options_save_Query: TFDQuery;
   private
     { Private declarations }
   public

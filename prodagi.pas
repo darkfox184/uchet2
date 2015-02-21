@@ -20,14 +20,17 @@ type
     DateTimePicker1: TDateTimePicker;
     Panel1: TPanel;
     Panel2: TPanel;
+    Button3: TButton;
     procedure Button2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure redaktirovatClick(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
     procedure ComboBox1Click(Sender: TObject);
     procedure searchClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,10 +79,46 @@ pgar.frxReport1.ShowReport;
 end;
 
 procedure Tprtovar.Button3Click(Sender: TObject);
+var
+bal:real;
 begin
-DataModule2.tovar_Query.SQL.Clear;
-DataModule2.tovar_Query.SQL.Add ('SELECT id, nomer, datepr, pricep, koll, fio, description, prodavec, gark, nomgart  FROM tovar ORDER BY id desc, id LIMIT 100');
-DataModule2.tovar_Query.open;
+DataModule2.retovp_Query1.SQL.Clear;
+DataModule2.retovp_Query1.SQL.Add ('SELECT SUM( koll * pricep ) AS sumzakaz  FROM tovar where nomgart=:in1');
+DataModule2.retovp_Query1.ParamByName('in1').AsString:=DBGrid1.Fields[1].AsString;
+DataModule2.retovp_Query1.open;
+
+DataModule2.del_tov_Query.SQL.Clear;
+DataModule2.del_tov_Query.SQL.Add ('SELECT id FROM clients Where fio=:fio');
+DataModule2.del_tov_Query.ParamByName('fio').Value:=DBGrid1.Fields[8].AsString;
+DataModule2.del_tov_Query.open;
+
+DataModule2.balans2_Query.SQL.Clear;
+DataModule2.balans2_Query.SQL.Add ('SELECT balans.balans, clients.datepp FROM balans,clients Where balans.dateop=clients.datepp AND balans.id_cl=:id');
+DataModule2.balans2_Query.ParamByName('id').Value:=DataModule2.del_tov_Query.Fields[0].AsString;
+DataModule2.balans2_Query.open;
+bal:=DataModule2.balans2_Query.Fields[0].AsFloat-DataModule2.retovp_Query1.Fields[0].AsFloat;
+
+DataModule2.shet_FDQuery.SQL.Clear;
+DataModule2.shet_FDQuery.SQL.Add ('UPDATE clients SET datepp=:dateprnakl WHERE id=:id   ');
+DataModule2.shet_FDQuery.ParamByName('dateprnakl').Value:=now;
+DataModule2.shet_FDQuery.ParamByName('id').Value:=DataModule2.del_tov_Query.Fields[0].AsString;
+DataModule2.shet_FDQuery.ExecSQL;
+
+DataModule2.shet_FDQuery.SQL.Clear;
+DataModule2.shet_FDQuery.SQL.Add ('INSERT INTO balans (nakl, id_cl,dateop,rashod,balans ) VALUES (:nameprnakl, :id_cl, :dateprnakl, :rashod, :balans)  ');
+DataModule2.shet_FDQuery.ParamByName('nameprnakl').Value:=DBGrid1.Fields[1].AsString;
+DataModule2.shet_FDQuery.ParamByName('id_cl').Value:=DataModule2.del_tov_Query.Fields[0].AsString;
+DataModule2.shet_FDQuery.ParamByName('dateprnakl').Value:=now;
+DataModule2.shet_FDQuery.ParamByName('rashod').Value:=DataModule2.retovp_Query1.Fields[0].AsFloat;
+DataModule2.shet_FDQuery.ParamByName('balans').Value:=bal;
+DataModule2.shet_FDQuery.ExecSQL;
+
+DataModule2.shet_FDQuery.SQL.Clear;
+DataModule2.shet_FDQuery.SQL.Add ('UPDATE garant SET status=1 WHERE gark=:id   ');
+DataModule2.shet_FDQuery.ParamByName('id').Value:=DBGrid1.Fields[1].AsString;
+DataModule2.shet_FDQuery.ExecSQL;
+Button3.Enabled:=false;
+redaktirovat.Enabled:=false;
 
 end;
 
@@ -115,7 +154,12 @@ DataModule2.retovp_Query1.SQL.Add ('SELECT *  FROM tovar where id=:in4');
 DataModule2.retovp_Query1.ParamByName('in4').AsString:=DBGrid1.Fields[0].AsString;
 DataModule2.retovp_Query1.open;
 redtovpr.edit8.Text:=DataModule2.retovp_Query1.Fields[1].AsString;
-redtovpr.edit10.Text:=DataModule2.retovp_Query1.Fields[7].AsString;
+DataModule2.del_tov_Query.SQL.Clear;
+DataModule2.del_tov_Query.SQL.Add ('select id,gark FROM garant where gark=:in3');
+DataModule2.del_tov_Query.ParamByName('in3').AsString:=DBGrid1.Fields[1].AsString;
+DataModule2.del_tov_Query.Open;
+redtovpr.DBLookupComboBox2.KeyValue:= DataModule2.del_tov_Query.Fields[0].AsString;
+
 redtovpr.edit9.Text:=DataModule2.retovp_Query1.Fields[5].AsString;
 
 redtovpr.edit1.Text:=DataModule2.retovp_Query1.Fields[2].AsString;
@@ -134,7 +178,7 @@ redtovpr.DBLookupComboBox1.KeyValue:= DataModule2.del_tov_Query.Fields[0].AsStri
 redtovpr.DateTimePicker1.DateTime:=DataModule2.retovp_Query1.Fields[11].AsDateTime;
 redtovpr.DateTimePicker2.DateTime:=DataModule2.retovp_Query1.Fields[12].AsDateTime;
 redtovpr.ComboBox1.Text:=DataModule2.retovp_Query1.Fields[9].AsString;
-
+DataModule2.shet2_FDQuery.Active:=true;
 redtovpr.showmodal;
 end;
 
@@ -152,11 +196,45 @@ begin
 end;
 end;
 
+procedure Tprtovar.DBGrid1CellClick(Column: TColumn);
+begin
+DataModule2.balans2_Query.SQL.Clear;
+DataModule2.balans2_Query.SQL.Add ('SELECT nakl FROM balans Where nakl=:id1');
+DataModule2.balans2_Query.ParamByName('id1').Value:=Dbgrid1.Fields[1].AsString;
+DataModule2.balans2_Query.open;
+if (Dbgrid1.Fields[1].AsString=DataModule2.balans2_Query.Fields[0].AsString) then begin
+Button3.Enabled:=false;
+end
+else begin
+Button3.Enabled:=true;
+end;
+DataModule2.balans3_Query.SQL.Clear;
+DataModule2.balans3_Query.SQL.Add ('SELECT  status FROM garant where gark=:id1 ');
+DataModule2.balans3_Query.ParamByName('id1').AsString:=Dbgrid1.Fields[1].AsString;
+DataModule2.balans3_Query.open;
+if (DataModule2.balans3_Query.Fields[0].asinteger=1) then begin
+redaktirovat.Enabled:=false;
+end
+else begin
+redaktirovat.Enabled:=true;
+end;
+
+
+end;
+
 procedure Tprtovar.FormActivate(Sender: TObject);
 begin
 DataModule2.tovar_Query.SQL.Clear;
 DataModule2.tovar_Query.SQL.Add ('SELECT id, nomer, datepr, pricep, koll, fio, description, prodavec, gark, nomgart  FROM tovar ORDER BY id desc, id LIMIT 100');
 DataModule2.tovar_Query.open;
+end;
+
+procedure Tprtovar.FormShow(Sender: TObject);
+begin
+
+Button3.Enabled:=false;
+redaktirovat.Enabled:=false;
+
 end;
 
 procedure Tprtovar.searchClick(Sender: TObject);

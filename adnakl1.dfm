@@ -21,9 +21,9 @@ object nakladd: Tnakladd
   object Label1: TLabel
     Left = 0
     Top = 0
-    Width = 89
+    Width = 92
     Height = 19
-    Caption = #1053#1072#1082#1072#1083#1076#1085#1072#1103' :'
+    Caption = #1053#1072#1082#1072#1083#1072#1076#1085#1072#1103':'
   end
   object Label2: TLabel
     Left = 0
@@ -33,9 +33,9 @@ object nakladd: Tnakladd
     Caption = #1055#1086#1089#1090#1072#1074#1094#1080#1082':'
   end
   object Edit1: TEdit
-    Left = 95
+    Left = 103
     Top = 0
-    Width = 306
+    Width = 298
     Height = 27
     TabOrder = 0
   end
@@ -49,9 +49,9 @@ object nakladd: Tnakladd
     OnClick = Button1Click
   end
   object DBLookupComboBox3: TDBLookupComboBox
-    Left = 95
+    Left = 103
     Top = 37
-    Width = 243
+    Width = 235
     Height = 27
     Hint = #1042#1099#1073#1086#1088' '#1085#1072#1082#1083#1072#1076#1085#1086#1081
     KeyField = 'id'

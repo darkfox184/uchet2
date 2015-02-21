@@ -54,31 +54,68 @@ uses data8_1, partndzakaz, partnrezakaz, otgruzdil;
 
 procedure Tzakazpart.Button1Click(Sender: TObject);
 begin
-Data8.ins_Query.SQL.Clear;
-Data8.ins_Query.SQL.Add ('INSERT INTO zakaz(datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch)');
-Data8.ins_Query.SQL.Add ('SELECT datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch FROM pzakaz WHERE id=:id');
-Data8.ins_Query.ParamByName('id').Value:=DBGrid1.Fields[0].AsString;
-Data8.ins_Query.ExecSQL;
+Data8.sel3_Query.SQL.Clear;
+Data8.sel3_Query.SQL.Add ('SELECT datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch FROM pzakaz WHERE id=:id ');
+Data8.sel3_Query.ParamByName('id').Value:=DBGrid1.Fields[0].AsString;
+Data8.sel3_Query.open;
+
+
+Data8.insz_Query.SQL.Clear;
+ Data8.insz_Query.SQL.Add ('INSERT INTO zakaz(datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch)');
+Data8.insz_Query.SQL.Add ('VALUE (:datez,:nomer,:description,:pricez,:garb,:fio,:prodavec,:koll,:poluch)');
+Data8.insz_Query.ParamByName('datez').Value:=Data8.sel3_Query.Fields[0].AsDateTime;
+Data8.insz_Query.ParamByName('nomer').Value:=Data8.sel3_Query.Fields[1].AsString;
+Data8.insz_Query.ParamByName('description').Value:=Data8.sel3_Query.Fields[2].AsString;
+Data8.insz_Query.ParamByName('pricez').Value:=Data8.sel3_Query.Fields[3].AsString;
+Data8.insz_Query.ParamByName('garb').Value:=Data8.sel3_Query.Fields[4].AsString;
+Data8.insz_Query.ParamByName('fio').Value:=Data8.sel3_Query.Fields[5].AsString;
+Data8.insz_Query.ParamByName('prodavec').Value:=Data8.sel3_Query.Fields[6].AsString;
+Data8.insz_Query.ParamByName('koll').Value:=Data8.sel3_Query.Fields[7].AsString;
+Data8.insz_Query.ParamByName('poluch').Value:=Data8.sel3_Query.Fields[8].AsString;
+Data8.insz_Query.ExecSQL;
 Data8.sel_Query.SQL.Clear;
 Data8.sel_Query.SQL.Add ('Update pzakaz SET status =:status WHERE id=:id ');
 Data8.sel_Query.ParamByName('status').AsString:='Подтверждён';
 Data8.sel_Query.ParamByName('id').AsString:=DBGrid1.Fields[0].AsString;
 Data8.sel_Query.ExecSQL;
+
+
+
 Data8.zakaz_Query.Refresh;
 end;
 
 procedure Tzakazpart.Button2Click(Sender: TObject);
+var
+i:integer;
 begin
-Data8.ins_Query.SQL.Clear;
-Data8.ins_Query.SQL.Add ('INSERT INTO zakaz(datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch) ');
-Data8.ins_Query.SQL.Add ('SELECT datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch FROM pzakaz WHERE poluch=:poluch');
-Data8.ins_Query.ParamByName('poluch').Value:='нет';
-Data8.ins_Query.ExecSQL;
+
+Data8.sel3_Query.SQL.Clear;
+Data8.sel3_Query.SQL.Add ('SELECT datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch FROM pzakaz WHERE  poluch=:poluch ');
+Data8.sel3_Query.ParamByName('poluch').Value:='нет';
+Data8.sel3_Query.open;
+Data8.sel3_Query.first;
+for i:=0 to  Data8.sel3_Query.RecordCount-1 do
+begin
+Data8.insz_Query.SQL.Clear;
+Data8.insz_Query.SQL.Add ('INSERT INTO zakaz(datez,nomer,description,pricez,garb,fio,prodavec,koll,poluch)');
+Data8.insz_Query.SQL.Add ('VALUE (:datez,:nomer,:description,:pricez,:garb,:fio,:prodavec,:koll,:poluch)');
+Data8.insz_Query.ParamByName('datez').Value:=Data8.sel3_Query.Fields[0].AsDateTime;
+Data8.insz_Query.ParamByName('nomer').Value:=Data8.sel3_Query.Fields[1].AsString;
+Data8.insz_Query.ParamByName('description').Value:=Data8.sel3_Query.Fields[2].AsString;
+Data8.insz_Query.ParamByName('pricez').Value:=Data8.sel3_Query.Fields[3].AsString;
+Data8.insz_Query.ParamByName('garb').Value:=Data8.sel3_Query.Fields[4].AsString;
+Data8.insz_Query.ParamByName('fio').Value:=Data8.sel3_Query.Fields[5].AsString;
+Data8.insz_Query.ParamByName('prodavec').Value:=Data8.sel3_Query.Fields[6].AsString;
+Data8.insz_Query.ParamByName('koll').Value:=Data8.sel3_Query.Fields[7].AsString;
+Data8.insz_Query.ParamByName('poluch').Value:=Data8.sel3_Query.Fields[8].AsString;
+Data8.insz_Query.ExecSQL;
 Data8.sel_Query.SQL.Clear;
 Data8.sel_Query.SQL.Add ('Update pzakaz SET status =:status WHERE poluch=:poluch ');
 Data8.sel_Query.ParamByName('status').AsString:='Подтверждён';
 Data8.sel_Query.ParamByName('poluch').Value:='нет';
 Data8.sel_Query.ExecSQL;
+Data8.sel3_Query.next;
+end;
 Data8.zakaz_Query.Refresh;
 end;
 
@@ -103,10 +140,32 @@ Data8.del_Query.SQL.Add ('DELETE FROM pzakaz where id=:in3');
 Data8.del_Query.ParamByName('in3').AsString:=DBGrid1.Fields[0].AsString;
 Data8.del_Query.ExecSQL;
 Data8.zakaz_Query.Refresh;
+Data8.sum_Query.SQL.Clear;
+Data8.sum_Query.SQL.Add ('SELECT pzakaz.pricez, pzakaz.koll, options.valuta, SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
+Data8.sum_Query.SQL.Add ('SUM(pzakaz.pricez * pzakaz.koll ) AS sumus  FROM pzakaz, options WHERE pzakaz.poluch=:poluch ');
+Data8.sum_Query.ParamByName('poluch').Value:='нет';
+Data8.sum_Query.Open;
+label5.Caption:=Data8.sum_Query.Fields[3].AsString;
+label7.Caption:=Data8.sum_Query.Fields[4].AsString;
+Data8.options_Query.SQL.Clear;
+Data8.options_Query.SQL.Add ('SELECT valuta  FROM options ');
+Data8.options_Query.open;
+label2.Caption:=Data8.options_Query.Fields[0].AsString;
   end;
 if buttonSelected = mrCancel then
 begin
  Data8.zakaz_Query.Refresh;
+Data8.sum_Query.SQL.Clear;
+Data8.sum_Query.SQL.Add ('SELECT pzakaz.pricez, pzakaz.koll, options.valuta, SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
+Data8.sum_Query.SQL.Add ('SUM(pzakaz.pricez * pzakaz.koll ) AS sumus  FROM pzakaz, options WHERE pzakaz.poluch=:poluch ');
+Data8.sum_Query.ParamByName('poluch').Value:='нет';
+Data8.sum_Query.Open;
+label5.Caption:=Data8.sum_Query.Fields[3].AsString;
+label7.Caption:=Data8.sum_Query.Fields[4].AsString;
+Data8.options_Query.SQL.Clear;
+Data8.options_Query.SQL.Add ('SELECT valuta  FROM options ');
+Data8.options_Query.open;
+label2.Caption:=Data8.options_Query.Fields[0].AsString;
   end;
     end;
 

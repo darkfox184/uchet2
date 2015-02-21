@@ -11,10 +11,11 @@ object prtovar: Tprtovar
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poMainFormCenter
+  Position = poDesigned
   Visible = True
   WindowState = wsMaximized
   OnActivate = FormActivate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 19
   object Panel2: TPanel
@@ -33,6 +34,21 @@ object prtovar: Tprtovar
     Height = 73
     Align = alTop
     TabOrder = 9
+    object Button3: TButton
+      Left = 791
+      Top = 8
+      Width = 178
+      Height = 49
+      Caption = #1056#1072#1089#1093#1086#1076#1085#1099#1081' '#1086#1088#1076#1077#1088
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = Button3Click
+    end
   end
   object DBGrid1: TDBGrid
     Left = 0
@@ -59,6 +75,7 @@ object prtovar: Tprtovar
     TitleFont.Pitch = fpVariable
     TitleFont.Style = [fsBold]
     TitleFont.Quality = fqAntialiased
+    OnCellClick = DBGrid1CellClick
     Columns = <
       item
         Expanded = False
@@ -118,14 +135,14 @@ object prtovar: Tprtovar
         Expanded = False
         FieldName = 'prodavec'
         Title.Caption = #1055#1088#1086#1076#1072#1074#1077#1094
-        Width = 84
+        Width = 122
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'fio'
         Title.Caption = #1055#1086#1082#1091#1087#1072#1090#1077#1083#1100
-        Width = 98
+        Width = 156
         Visible = True
       end
       item
@@ -138,8 +155,8 @@ object prtovar: Tprtovar
   end
   object Button1: TButton
     Left = 0
-    Top = 9
-    Width = 137
+    Top = 8
+    Width = 113
     Height = 50
     Caption = #1055#1077#1095#1072#1090#1100' '#1089#1095#1077#1090#1072
     Font.Charset = DEFAULT_CHARSET
@@ -152,8 +169,8 @@ object prtovar: Tprtovar
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 143
-    Top = 9
+    Left = 119
+    Top = 8
     Width = 242
     Height = 50
     Caption = #1055#1077#1095#1072#1090#1100' '#1075#1072#1088#1072#1085#1090#1080#1081#1085#1086#1075#1086' '#1090#1072#1083#1086#1085#1072
@@ -167,9 +184,9 @@ object prtovar: Tprtovar
     OnClick = Button2Click
   end
   object Button4: TButton
-    Left = 727
-    Top = 9
-    Width = 138
+    Left = 367
+    Top = 8
+    Width = 130
     Height = 50
     Caption = #1059#1076#1072#1083#1080#1090#1100' '#1090#1086#1074#1072#1088
     Font.Charset = DEFAULT_CHARSET
@@ -182,9 +199,9 @@ object prtovar: Tprtovar
     OnClick = Button4Click
   end
   object redaktirovat: TButton
-    Left = 391
+    Left = 503
     Top = 8
-    Width = 330
+    Width = 282
     Height = 50
     Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' / '#1042#1077#1088#1085#1091#1090#1100' '#1085#1072' '#1089#1082#1083#1072#1076
     Font.Charset = DEFAULT_CHARSET
@@ -197,8 +214,8 @@ object prtovar: Tprtovar
     OnClick = redaktirovatClick
   end
   object Edit1: TEdit
-    Left = 896
-    Top = 39
+    Left = 983
+    Top = 40
     Width = 161
     Height = 27
     TabOrder = 5
@@ -206,8 +223,8 @@ object prtovar: Tprtovar
     Visible = False
   end
   object ComboBox1: TComboBox
-    Left = 896
-    Top = 5
+    Left = 983
+    Top = 7
     Width = 161
     Height = 27
     TabOrder = 6
@@ -220,9 +237,9 @@ object prtovar: Tprtovar
       #1055#1086#1080#1089#1082' '#1087#1086' '#1089#1095#1077#1090#1091'/'#1075#1072#1088#1072#1085#1090#1080#1081#1085#1086#1084#1091' '#1090#1072#1083#1086#1085#1091)
   end
   object search: TButton
-    Left = 1071
+    Left = 1150
     Top = 8
-    Width = 95
+    Width = 67
     Height = 49
     Caption = #1055#1086#1080#1089#1082
     Default = True
@@ -230,8 +247,8 @@ object prtovar: Tprtovar
     OnClick = searchClick
   end
   object DateTimePicker1: TDateTimePicker
-    Left = 896
-    Top = 38
+    Left = 983
+    Top = 40
     Width = 161
     Height = 27
     Date = 42001.802970416670000000

@@ -18,9 +18,9 @@ object rednakls: Trednakls
   object Label1: TLabel
     Left = 24
     Top = 8
-    Width = 89
+    Width = 92
     Height = 19
-    Caption = #1053#1072#1082#1072#1083#1076#1085#1072#1103' :'
+    Caption = #1053#1072#1082#1072#1083#1072#1076#1085#1072#1103':'
   end
   object Label2: TLabel
     Left = 24

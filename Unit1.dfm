@@ -2542,6 +2542,7 @@ object Form1: TForm1
     Width = 145
     Height = 27
     TabOrder = 0
+    Text = 'admin'
     TextHint = #1051#1086#1075#1080#1085
   end
   object Edit2: TEdit
@@ -2551,6 +2552,7 @@ object Form1: TForm1
     Height = 27
     PasswordChar = '*'
     TabOrder = 1
+    Text = 'Veritas'
     TextHint = #1055#1072#1088#1086#1083#1100
   end
   object Button1: TButton
@@ -2566,7 +2568,7 @@ object Form1: TForm1
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
     ScreenCursor = gcrDefault
-    Left = 328
+    Left = 360
     Top = 208
   end
 end

@@ -26,8 +26,10 @@ type
     ComboBox1: TComboBox;
     DateTimePicker2: TDateTimePicker;
     DBLookupComboBox1: TDBLookupComboBox;
+    Label1: TLabel;
     procedure Button2Click(Sender: TObject);
     procedure dskbtnClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,6 +52,12 @@ end;
 
 procedure Tdsklad.dskbtnClick(Sender: TObject);
 begin
+if(edit1.Text='')or (edit2.Text='')or (edit9.Text='')or (edit3.Text='') or (combobox1.Text='')or (DBLookupComboBox1.Text='')  then  begin
+  MessageDlg('Вы не заполнили все поля для добавления товара на склад!',mtWarning, mbOKCancel, 0)
+end else
+begin
+if (edit8.Text='') then begin edit8.text:=floattostr(random(10000000000000));
+end;
 DataModule2.sklad_Query.Active:=false;
 DataModule2.redtovp_save_Query1.SQL.Clear;
 DataModule2.redtovp_save_Query1.SQL.Add ('INSERT INTO sklad (dateb,nomer,description,pricez,garb,fio,prodavec,koll ) VALUES(:dateb,:nomer,:description,:pricez,:garb,:fio,:prodavec,:koll) ');
@@ -66,6 +74,12 @@ DataModule2.sklad_Query.Active:=true;
 DataModule2.sklad_Query.Refresh;
 
 close;
+end;
+end;
+
+procedure Tdsklad.FormCreate(Sender: TObject);
+begin
+DateTimePicker2.Date:=Date;
 end;
 
 end.

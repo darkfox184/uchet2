@@ -38,6 +38,7 @@ type
     DBLookupComboBox2: TDBLookupComboBox;
     procedure Button2Click(Sender: TObject);
     procedure saveClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,12 +60,20 @@ begin
 close;
 end;
 
+procedure Tprodaga.FormCreate(Sender: TObject);
+begin
+DateTimePicker1.Date:=Date;
+end;
+
 procedure Tprodaga.saveClick(Sender: TObject);
  var kollpr,kollpr1 :integer;
 begin
+if(edit8.Text='')or (edit4.Text='')or (edit5.Text='') or(edit9.Text='')or (edit1.Text='')or (edit2.Text='')or (DBLookupComboBox2.Text='')or (edit3.Text='') or (combobox1.Text='')or (DBLookupComboBox1.Text='')  then  begin
+  MessageDlg('Ќе заполнены все пол€ дл€ продажи товара!',mtWarning, mbOKCancel, 0)
+end else
+begin
 kollpr:=strtoint(edit3.Text);
 if koll=kollpr then  begin
-
 DataModule2.redtovp_save_Query1.SQL.Clear;
 DataModule2.redtovp_save_Query1.SQL.Add ('INSERT INTO tovar (dateb,datepr,nomer,description,pricez,pricep,garb,gark,nomgart,fio,prodavec,koll ) VALUES(:dateb,:datepr,:nomer,:description,:pricez,:pricep,:garb,:gark,:nomgart,:fio,:prodavec,:koll) ');
 DataModule2.redtovp_save_Query1.ParamByName('dateb').AsDate:=DateTimePicker2.DateTime;
@@ -72,7 +81,7 @@ DataModule2.redtovp_save_Query1.ParamByName('datepr').AsDate:=DateTimePicker1.Da
 DataModule2.redtovp_save_Query1.ParamByName('nomer').AsString:=edit8.Text;
 DataModule2.redtovp_save_Query1.ParamByName('description').AsString:=edit1.Text;
 DataModule2.redtovp_save_Query1.ParamByName('pricez').AsString:=StringReplace(edit2.Text, ',', '.', [rfReplaceAll]);
-DataModule2.redtovp_save_Query1.ParamByName('pricep').AsString:=StringReplace(edit4.Text, ',', '.', [rfReplaceAll]);;
+DataModule2.redtovp_save_Query1.ParamByName('pricep').AsString:=StringReplace(edit4.Text, ',', '.', [rfReplaceAll]);
 DataModule2.redtovp_save_Query1.ParamByName('garb').AsString:=edit9.Text;
 DataModule2.redtovp_save_Query1.ParamByName('gark').AsString:=edit5.Text;
 DataModule2.redtovp_save_Query1.ParamByName('nomgart').AsString:=DBLookupComboBox1.Text;
@@ -97,8 +106,8 @@ DataModule2.redtovp_save_Query1.ParamByName('dateb').AsDate:=DateTimePicker2.Dat
 DataModule2.redtovp_save_Query1.ParamByName('datepr').AsDate:=DateTimePicker1.DateTime;
 DataModule2.redtovp_save_Query1.ParamByName('nomer').AsString:=edit8.Text;
 DataModule2.redtovp_save_Query1.ParamByName('description').AsString:=edit1.Text;
-DataModule2.redtovp_save_Query1.ParamByName('pricez').AsString:=edit2.Text;
-DataModule2.redtovp_save_Query1.ParamByName('pricep').AsString:=edit4.Text;
+DataModule2.redtovp_save_Query1.ParamByName('pricez').AsString:=StringReplace(edit2.Text, ',', '.', [rfReplaceAll]);
+DataModule2.redtovp_save_Query1.ParamByName('pricep').AsString:=StringReplace(edit4.Text, ',', '.', [rfReplaceAll]);
 DataModule2.redtovp_save_Query1.ParamByName('garb').AsString:=edit9.Text;
 DataModule2.redtovp_save_Query1.ParamByName('gark').AsString:=edit5.Text;
 DataModule2.redtovp_save_Query1.ParamByName('nomgart').AsString:=DBLookupComboBox1.Text;
@@ -111,8 +120,6 @@ DataModule2.del_tov_Query.SQL.Add ('update  sklad SET  koll =:kollpr1  WHERE id=
 DataModule2.del_tov_Query.ParamByName('id').AsString:=edit7.text;
 DataModule2.del_tov_Query.ParamByName('kollpr1').Value:=kollpr1;
 DataModule2.del_tov_Query.ExecSQL;
-DataModule2.tovar_Query.Active:=true;
-DataModule2.tovar_Query.Refresh;
 DataModule2.sklad_Query.Refresh;
 end
 else begin
@@ -122,6 +129,7 @@ end;
 
 end;
  close;
+end;
 end;
 
 end.

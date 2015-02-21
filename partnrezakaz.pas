@@ -28,6 +28,9 @@ type
     id: TEdit;
     DBLookupComboBox3: TDBLookupComboBox;
     procedure dskbtnClick(Sender: TObject);
+    procedure pricezKeyPress(Sender: TObject; var Key: Char);
+    procedure kollKeyPress(Sender: TObject; var Key: Char);
+    procedure garbKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -44,6 +47,11 @@ implementation
 uses data8_1, partzakaz;
 
 procedure Tpartnredzakaz.dskbtnClick(Sender: TObject);
+begin
+if (nomer.Text='') or (description.Text='')or (pricez.Text='')or (garb.Text='')or (koll.Text='') or (combobox1.Text='')or (DBLookupComboBox3.Text='') then
+ begin
+  MessageDlg('Вы не заполнили все поля для оформления заказа?',mtWarning, mbOKCancel, 0)
+end else
 begin
 Data8.ins_Query.SQL.Clear;
 Data8.ins_Query.SQL.Add ('Update pzakaz SET datez=:datez, nomer=:nomer, description=:description, pricez=:pricez, garb =:garb, fio=:fio,');
@@ -77,6 +85,25 @@ Data8.options_Query.open;
 zakazpart.label2.Caption:=Data8.options_Query.Fields[0].AsString;
 
 close;
+end;
+end;
+
+procedure Tpartnredzakaz.garbKeyPress(Sender: TObject; var Key: Char);
+begin
+If not (Key in ['0'..'9', #8]) then
+Key:=#0;
+end;
+
+procedure Tpartnredzakaz.kollKeyPress(Sender: TObject; var Key: Char);
+begin
+If not (Key in ['0'..'9', #8]) then
+Key:=#0;
+end;
+
+procedure Tpartnredzakaz.pricezKeyPress(Sender: TObject; var Key: Char);
+begin
+If not (Key in ['0'..'9',',','.', #8]) then
+Key:=#0;
 end;
 
 end.

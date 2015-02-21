@@ -17,6 +17,7 @@ type
     Button1: TButton;
     Image1: TImage;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
@@ -36,18 +37,18 @@ implementation
 
 {$R *.dfm}
 
-uses Unit2, Unit3;
+uses Unit2,md5, Unit3;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
+
 DataModule2.Auth_Query.SQL.Clear;
 DataModule2.Auth_Query.SQL.Add ('SELECT pasw FROM users WHERE name=:name ');
 DataModule2.Auth_Query.Params.ParamByName('name').Value:=edit1.text;
 DataModule2.Auth_Query.open;
-
     if (Length(edit1.text) = 0) or (Length(edit2.text) = 0) then
       ShowMessage('»м€ пользовател€ или пароль не могут быть пустыми!') else
-if (DataModule2.Auth_Query.FieldByName('pasw').AsString=edit2.text) then
+if (DataModule2.Auth_Query.FieldByName('pasw').AsString=MD5DigestToStr(MD5String(edit2.text))) then
 begin
 form1.Close;
 main.menu:=main.MainMenu1;

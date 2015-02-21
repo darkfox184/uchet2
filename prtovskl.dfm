@@ -185,6 +185,7 @@ object opskladf: Topskladf
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnKeyPress = pricezKeyPress
   end
   object koll: TEdit
     Left = 176
@@ -198,6 +199,7 @@ object opskladf: Topskladf
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnKeyPress = kollKeyPress
   end
   object nomer: TEdit
     Left = 255
@@ -225,6 +227,7 @@ object opskladf: Topskladf
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    OnKeyPress = garbKeyPress
   end
   object dskbtn: TButton
     Left = 368
@@ -254,9 +257,10 @@ object opskladf: Topskladf
     Font.Style = []
     ParentFont = False
     TabOrder = 6
+    OnClick = Button2Click
   end
   object prodavec: TComboBox
-    Left = 521
+    Left = 523
     Top = 105
     Width = 145
     Height = 27

@@ -5,9 +5,9 @@ object Data8: TData8
   object FDConnection1: TFDConnection
     Params.Strings = (
       'Server=foxvaler.mysql.ukraine.com.ua'
-      'Password=xqn3y6hf'
-      'User_Name=foxvaler_copm'
-      'Database=foxvaler_copm'
+      'Password=5xygs7yh'
+      'User_Name=foxvaler_diler'
+      'Database=foxvaler_diler'
       'CharacterSet=cp1251'
       'DriverID=MySQL')
     LoginPrompt = False
@@ -47,7 +47,7 @@ object Data8: TData8
     Top = 16
   end
   object clients_Query: TFDQuery
-    Connection = FDConnection1
+    Connection = FDConnection2
     SQL.Strings = (
       'SELECT id, fio FROM  `clients`')
     Left = 32
@@ -64,12 +64,12 @@ object Data8: TData8
     Top = 88
   end
   object sel2_Query: TFDQuery
-    Connection = FDConnection1
+    Connection = FDConnection2
     Left = 584
     Top = 88
   end
   object shet_Query: TFDQuery
-    Connection = FDConnection1
+    Connection = FDConnection2
     SQL.Strings = (
       'SELECT  id,gark  FROM garant ORDER BY id DESC, id LIMIT 10'
       '')
@@ -90,5 +90,32 @@ object Data8: TData8
     DataSet = pzakaz_Query
     Left = 360
     Top = 180
+  end
+  object FDConnection2: TFDConnection
+    Params.Strings = (
+      'Server=foxvaler.mysql.ukraine.com.ua'
+      'Password=7u31hzu2'
+      'User_Name=foxvaler_copm'
+      'Database=foxvaler_copm'
+      'CharacterSet=cp1251'
+      'DriverID=MySQL')
+    LoginPrompt = False
+    Left = 32
+    Top = 248
+  end
+  object insz_Query: TFDQuery
+    Connection = FDConnection2
+    Left = 584
+    Top = 168
+  end
+  object sel3_Query: TFDQuery
+    Connection = FDConnection1
+    Left = 504
+    Top = 176
+  end
+  object options_save_Query: TFDQuery
+    Connection = FDConnection1
+    Left = 400
+    Top = 64
   end
 end

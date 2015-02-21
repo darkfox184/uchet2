@@ -37,6 +37,7 @@ object options: Toptions
       Height = 27
       Align = alCustom
       TabOrder = 0
+      OnKeyPress = edit1KeyPress
     end
     object Button1: TButton
       Left = 64

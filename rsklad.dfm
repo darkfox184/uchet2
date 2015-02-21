@@ -70,6 +70,16 @@ object sklad: Tsklad
       TabOrder = 0
       OnClick = Button5Click
     end
+    object Button1: TButton
+      Left = 1200
+      Top = 8
+      Width = 95
+      Height = 50
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+      Default = True
+      TabOrder = 1
+      OnClick = Button1Click
+    end
   end
   object DBGrid1: TDBGrid
     Left = 0
@@ -109,7 +119,7 @@ object sklad: Tsklad
         Expanded = False
         FieldName = 'nomer'
         Title.Caption = #1057#1077#1088#1080#1081#1085#1099#1081' '#1085#1086#1084#1077#1088
-        Width = 128
+        Width = 164
         Visible = True
       end
       item
@@ -137,8 +147,15 @@ object sklad: Tsklad
         Expanded = False
         FieldName = 'prisegrn'
         ImeMode = imHanguel
-        Title.Caption = #1062#1077#1085#1072' '#1075#1088#1085'./'#1096#1090'.'
-        Width = 104
+        Title.Caption = #1062#1077#1085#1072' '#1090#1077#1082'. '#1075#1088#1085'./'#1096#1090
+        Width = 135
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'przak'
+        Title.Caption = #1062#1077#1085#1072' '#1079#1072#1082'. '#1075#1088#1085'./'#1096#1090
+        Width = 134
         Visible = True
       end
       item
@@ -152,14 +169,14 @@ object sklad: Tsklad
         Expanded = False
         FieldName = 'prodavec'
         Title.Caption = #1055#1088#1086#1076#1072#1074#1077#1094
-        Width = 79
+        Width = 114
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'fio'
         Title.Caption = #1055#1086#1082#1091#1087#1072#1090#1077#1083#1100
-        Width = 92
+        Width = 211
         Visible = True
       end
       item
@@ -171,9 +188,9 @@ object sklad: Tsklad
       end
       item
         Expanded = False
-        FieldName = 'gark'
-        Title.Caption = #1043#1072#1088#1072#1085#1090#1080#1103
-        Width = 72
+        FieldName = 'kursp'
+        Title.Caption = 'USD '#1082#1091#1088#1089' '#1079#1072#1082#1091#1087#1082#1080
+        Width = 132
         Visible = True
       end>
   end
@@ -271,7 +288,7 @@ object sklad: Tsklad
     OnClick = searchClick
   end
   object DateTimePicker1: TDateTimePicker
-    Left = 838
+    Left = 906
     Top = 41
     Width = 187
     Height = 27

@@ -24,6 +24,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure schet_createClick(Sender: TObject);
     procedure Button6Click(Sender: TObject);
@@ -33,6 +34,7 @@ type
     procedure ComboBox1Click(Sender: TObject);
     procedure searchClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +51,18 @@ implementation
 
 uses Unit2, rsklprod, redtovskl, dobavltov;
 
+procedure Tsklad.Button1Click(Sender: TObject);
+begin
+ DataModule2.sklad_Query.SQL.Clear;
+DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb,sklad.kursp, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta, ');
+DataModule2.sklad_Query.SQL.Add ('sklad.pricez*options.valuta as prisegrn, sklad.pricez*sklad.kursp as przak   FROM sklad, options ORDER BY sklad.id desc ');
+DataModule2.sklad_Query.open;
+DataModule2.options_Query.SQL.Clear;
+DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
+DataModule2.options_Query.open;
+label2.Caption:=DataModule2.options_Query.Fields[0].AsString;
+end;
+
 procedure Tsklad.Button2Click(Sender: TObject);
 
 begin
@@ -64,9 +78,10 @@ redsklad.edit9.Text:=DataModule2.retovp_Query1.Fields[7].AsString;
 redsklad.edit1.Text:=DataModule2.retovp_Query1.Fields[4].AsString;
 redsklad.edit2.Text:=DataModule2.retovp_Query1.Fields[5].AsString;
 redsklad.edit3.Text:=DataModule2.retovp_Query1.Fields[12].AsString;
+redsklad.edit4.Text:=DataModule2.retovp_Query1.Fields[13].AsString;
 DataModule2.del_tov_Query.SQL.Clear;
 DataModule2.del_tov_Query.SQL.Add ('select id,fio FROM clients where fio=:in3');
-DataModule2.del_tov_Query.ParamByName('in3').AsString:=DBGrid1.Fields[8].AsString;
+DataModule2.del_tov_Query.ParamByName('in3').AsString:=DBGrid1.Fields[9].AsString;
 DataModule2.del_tov_Query.Open;
 redsklad.DBLookupComboBox1.KeyValue:= DataModule2.del_tov_Query.Fields[0].AsString;
 
@@ -123,7 +138,8 @@ end;
 procedure Tsklad.FormActivate(Sender: TObject);
 begin
 DataModule2.sklad_Query.SQL.Clear;
-DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn  FROM sklad, options ORDER BY sklad.id desc ');
+DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb,sklad.kursp, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta, ');
+DataModule2.sklad_Query.SQL.Add ('sklad.pricez*options.valuta as prisegrn, sklad.pricez*sklad.kursp as przak   FROM sklad, options ORDER BY sklad.id desc ');
 DataModule2.sklad_Query.open;
 DataModule2.options_Query.SQL.Clear;
 DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
@@ -134,7 +150,8 @@ end;
 procedure Tsklad.FormCreate(Sender: TObject);
 begin
 DataModule2.sklad_Query.SQL.Clear;
-DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn  FROM sklad, options ORDER BY sklad.id desc ');
+DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer,sklad.kursp,  sklad.dateb, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta,');
+ DataModule2.sklad_Query.SQL.Add ('sklad.pricez*options.valuta as prisegrn, sklad.pricez*sklad.kursp as przak   FROM sklad, options ORDER BY sklad.id desc ');
 DataModule2.sklad_Query.open;
 DataModule2.options_Query.SQL.Clear;
 DataModule2.options_Query.SQL.Add ('SELECT valuta  FROM options ');
@@ -161,11 +178,11 @@ koll:=DataModule2.retovp_Query1.Fields[12].AsInteger;
 prodaga.edit5.Text:=DataModule2.retovp_Query1.Fields[8].AsString;
 DataModule2.del_tov_Query.SQL.Clear;
 DataModule2.del_tov_Query.SQL.Add ('select id,fio FROM clients where fio=:in3');
-DataModule2.del_tov_Query.ParamByName('in3').AsString:=DBGrid1.Fields[8].AsString;
+DataModule2.del_tov_Query.ParamByName('in3').AsString:=DBGrid1.Fields[9].AsString;
 DataModule2.del_tov_Query.Open;
 prodaga.DBLookupComboBox2.KeyValue:= DataModule2.del_tov_Query.Fields[0].AsString;
 
-prodaga.DateTimePicker1.DateTime:=DataModule2.retovp_Query1.Fields[1].AsDateTime;
+//prodaga.DateTimePicker1.DateTime:=DataModule2.retovp_Query1.Fields[1].AsDateTime;
 prodaga.DateTimePicker2.DateTime:=DataModule2.retovp_Query1.Fields[2].AsDateTime;
 prodaga.ComboBox1.Text:=DataModule2.retovp_Query1.Fields[11].AsString;
 DataModule2.shet2_FDQuery.Active:=true;
@@ -207,19 +224,22 @@ str:string;
 begin
 if combobox1.ItemIndex=0 then begin
 DataModule2.sklad_Query.SQL.Clear;
-DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn  FROM sklad, options where sklad.nomer like ''%'+edit1.text+'%''');
+DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb,sklad.kursp, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, ');
+DataModule2.sklad_Query.SQL.Add ('sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn, sklad.pricez*sklad.kursp as przak   FROM sklad, options where sklad.nomer like ''%'+edit1.text+'%''');
 DataModule2.sklad_Query.open;
   end;
 if combobox1.ItemIndex=1 then begin
 str:= FormatDateTime('yyyy-mm-dd',DateTimePicker1.Date);
 DataModule2.sklad_Query.SQL.Clear;
-DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn  FROM sklad, options where sklad.datepr=:in3');
+DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb,sklad.kursp, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec,  ');
+DataModule2.sklad_Query.SQL.Add ('sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn, sklad.pricez*sklad.kursp as przak   FROM sklad, options where sklad.datepr=:in3');
 DataModule2.sklad_Query.ParamByName('in3').Value:=str;
 DataModule2.sklad_Query.open;
   end;
 if combobox1.ItemIndex=2 then begin
 DataModule2.sklad_Query.SQL.Clear;
-DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec, sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn  FROM sklad, options where sklad.description like ''%'+edit1.text+'%''');
+DataModule2.sklad_Query.SQL.Add ('SELECT sklad.id, sklad.nomer, sklad.dateb,sklad.kursp, sklad.pricez, sklad.koll, sklad.fio, sklad.description, sklad.prodavec,  ');
+DataModule2.sklad_Query.SQL.Add ('sklad.garb, options.valuta, sklad.pricez*options.valuta as prisegrn, sklad.pricez*sklad.kursp as przak   FROM sklad, options where sklad.description like ''%'+edit1.text+'%''');
 DataModule2.sklad_Query.open;
   end;
 

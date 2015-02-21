@@ -2,8 +2,8 @@ object addnakl: Taddnakl
   Left = 0
   Top = 0
   Caption = #1053#1072#1082#1083#1072#1076#1085#1099#1077' '#1087#1086#1089#1090#1072#1074#1097#1080#1082#1072
-  ClientHeight = 264
-  ClientWidth = 543
+  ClientHeight = 358
+  ClientWidth = 865
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,16 +11,18 @@ object addnakl: Taddnakl
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 19
   object panel1: TPanel
     Left = 0
     Top = 0
-    Width = 543
+    Width = 865
     Height = 65
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 543
     object Button1: TButton
       Left = 16
       Top = 8
@@ -52,8 +54,8 @@ object addnakl: Taddnakl
   object DBGrid1: TDBGrid
     Left = 0
     Top = 65
-    Width = 543
-    Height = 199
+    Width = 865
+    Height = 293
     Align = alClient
     DataSource = DataModule2.post_DataSource
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -83,7 +85,7 @@ object addnakl: Taddnakl
         Expanded = False
         FieldName = 'post'
         Title.Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082
-        Width = 225
+        Width = 484
         Visible = True
       end>
   end

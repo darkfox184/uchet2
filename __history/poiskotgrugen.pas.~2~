@@ -1,0 +1,42 @@
+unit poiskotgrugen;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.ComCtrls, Vcl.ExtCtrls;
+
+type
+  Totgrpoisk = class(TForm)
+    Panel1: TPanel;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    Button1: TButton;
+    GroupBox2: TGroupBox;
+    DateTimePicker3: TDateTimePicker;
+    search: TButton;
+    ComboBox1: TComboBox;
+    Edit1: TEdit;
+    Button3: TButton;
+    Button4: TButton;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    Button2: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  otgrpoisk: Totgrpoisk;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -152,6 +152,7 @@ object partnredzakaz: Tpartnredzakaz
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnKeyPress = pricezKeyPress
   end
   object koll: TEdit
     Left = 184
@@ -165,6 +166,7 @@ object partnredzakaz: Tpartnredzakaz
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnKeyPress = kollKeyPress
   end
   object nomer: TEdit
     Left = 223
@@ -191,6 +193,7 @@ object partnredzakaz: Tpartnredzakaz
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    OnKeyPress = garbKeyPress
   end
   object dskbtn: TButton
     Left = 479

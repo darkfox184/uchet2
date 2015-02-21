@@ -59,7 +59,7 @@ object redsklad: Tredsklad
   object Label6: TLabel
     Left = 232
     Top = 80
-    Width = 194
+    Width = 188
     Height = 19
     Caption = ' '#1043#1072#1088#1072#1085#1090#1080#1103' '#1073#1072#1079#1099' ('#1084#1077#1089#1103#1094#1099'):'
     Font.Charset = DEFAULT_CHARSET
@@ -134,6 +134,19 @@ object redsklad: Tredsklad
     Font.Style = []
     ParentFont = False
   end
+  object Label3: TLabel
+    Left = 367
+    Top = 216
+    Width = 136
+    Height = 19
+    Caption = 'USD '#1082#1091#1088#1089' '#1079#1072#1082#1091#1087#1082#1080':'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object Edit1: TEdit
     Left = 0
     Top = 169
@@ -150,7 +163,7 @@ object redsklad: Tredsklad
   end
   object Edit2: TEdit
     Left = 0
-    Top = 241
+    Top = 249
     Width = 153
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -165,7 +178,7 @@ object redsklad: Tredsklad
   end
   object Edit3: TEdit
     Left = 184
-    Top = 241
+    Top = 249
     Width = 147
     Height = 27
     Font.Charset = DEFAULT_CHARSET
@@ -176,6 +189,7 @@ object redsklad: Tredsklad
     ParentFont = False
     TabOrder = 2
     Text = 'Edit3'
+    OnKeyPress = Edit3KeyPress
   end
   object Edit8: TEdit
     Left = 362
@@ -204,6 +218,7 @@ object redsklad: Tredsklad
     ParentFont = False
     TabOrder = 4
     Text = 'Edit9'
+    OnKeyPress = Edit9KeyPress
   end
   object save: TButton
     Left = 342
@@ -211,6 +226,7 @@ object redsklad: Tredsklad
     Width = 126
     Height = 27
     Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
+    Default = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -299,5 +315,20 @@ object redsklad: Tredsklad
     ParentShowHint = False
     ShowHint = True
     TabOrder = 10
+  end
+  object Edit4: TEdit
+    Left = 367
+    Top = 249
+    Width = 147
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
+    Text = 'Edit3'
+    OnKeyPress = Edit4KeyPress
   end
 end

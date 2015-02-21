@@ -5,8 +5,8 @@ object dsklad: Tdsklad
   BorderStyle = bsDialog
   BorderWidth = 10
   Caption = #1044#1086#1073#1072#1074#1083#1077#1085#1080#1077' '#1090#1086#1074#1072#1088#1072' '#1085#1072' '#1089#1082#1083#1072#1076
-  ClientHeight = 327
-  ClientWidth = 585
+  ClientHeight = 335
+  ClientWidth = 656
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,6 +15,7 @@ object dsklad: Tdsklad
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
@@ -33,9 +34,9 @@ object dsklad: Tdsklad
   object Label5: TLabel
     Left = 223
     Top = 0
-    Width = 130
+    Width = 144
     Height = 19
-    Caption = #1057#1077#1088#1080#1081#1085#1099#1081' '#1085#1086#1084#1077#1088':'
+    Caption = #1057#1077#1088#1080#1081#1085#1099#1081' '#1085#1086#1084#1077#1088' *:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -121,10 +122,25 @@ object dsklad: Tdsklad
     Font.Style = []
     ParentFont = False
   end
+  object Label1: TLabel
+    Left = 0
+    Top = 274
+    Width = 656
+    Height = 18
+    Caption = 
+      '*'#1057#1077#1088#1080#1081#1085#1099#1081' '#1085#1086#1084#1077#1088' '#1075#1077#1085#1077#1088#1080#1088#1091#1077#1090#1089#1103' '#1089#1083#1091#1095#1072#1081#1085#1099#1084' '#1086#1073#1088#1072#1079#1086#1084', '#1077#1089#1083#1080' '#1087#1086#1083#1077' '#1086#1089#1090#1072#1074#1080 +
+      #1090#1100' '#1087#1091#1089#1090#1099#1084
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+  end
   object Edit1: TEdit
     Left = 0
     Top = 169
-    Width = 575
+    Width = 624
     Height = 27
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -187,8 +203,8 @@ object dsklad: Tdsklad
     TabOrder = 4
   end
   object dskbtn: TButton
-    Left = 335
-    Top = 300
+    Left = 432
+    Top = 308
     Width = 126
     Height = 27
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100
@@ -202,8 +218,8 @@ object dsklad: Tdsklad
     OnClick = dskbtnClick
   end
   object Button2: TButton
-    Left = 482
-    Top = 300
+    Left = 563
+    Top = 308
     Width = 93
     Height = 27
     Caption = #1054#1090#1084#1077#1085#1072

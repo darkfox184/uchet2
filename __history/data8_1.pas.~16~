@@ -1,0 +1,69 @@
+unit data8_1;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MySQL,
+  FireDAC.Phys.MySQLDef, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
+  FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  TData8 = class(TDataModule)
+    FDConnection1: TFDConnection;
+    zakaz_Query: TFDQuery;
+    zakaz_DataSource: TDataSource;
+    sum_Query: TFDQuery;
+    options_Query: TFDQuery;
+    del_Query: TFDQuery;
+    ins_Query: TFDQuery;
+    clients_Query: TFDQuery;
+    clients_DataSource: TDataSource;
+    sel_Query: TFDQuery;
+    sel2_Query: TFDQuery;
+    shet_Query: TFDQuery;
+    shet_DataSource: TDataSource;
+    pzakaz_Query: TFDQuery;
+    pzakaz_DataSource: TDataSource;
+    FDConnection2: TFDConnection;
+    insz_Query: TFDQuery;
+    sel3_Query: TFDQuery;
+    ADOTable1: TFDTable;
+    ADOTable2: TFDTable;
+    ADOTable2datez: TDateField;
+    ADOTable2nomer: TStringField;
+    ADOTable2description: TStringField;
+    ADOTable2pricez: TBCDField;
+    ADOTable2garb: TStringField;
+    ADOTable2prodavec: TStringField;
+    ADOTable2fio: TStringField;
+    ADOTable2koll: TIntegerField;
+    ADOTable2poluch: TStringField;
+    ADOTable1datez: TDateField;
+    ADOTable1nomer: TStringField;
+    ADOTable1description: TStringField;
+    ADOTable1pricez: TBCDField;
+    ADOTable1garb: TIntegerField;
+    ADOTable1prodavec: TStringField;
+    ADOTable1fio: TStringField;
+    ADOTable1koll: TIntegerField;
+    ADOTable1poluch: TStringField;
+    ADOTable2Id: TFDAutoIncField;
+    ADOTable1Id: TFDAutoIncField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Data8: TData8;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

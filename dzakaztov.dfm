@@ -16,6 +16,7 @@ object dzakaz: Tdzakaz
   OldCreateOrder = False
   Position = poMainFormCenter
   OnActivate = FormActivate
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 19
   object Label2: TLabel
@@ -147,6 +148,7 @@ object dzakaz: Tdzakaz
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnKeyPress = Edit2KeyPress
   end
   object Edit3: TEdit
     Left = 184
@@ -160,6 +162,7 @@ object dzakaz: Tdzakaz
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnKeyPress = Edit3KeyPress
   end
   object Edit8: TEdit
     Left = 223
@@ -173,6 +176,7 @@ object dzakaz: Tdzakaz
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    Text = 'KT'
   end
   object Edit9: TEdit
     Left = 263
@@ -186,9 +190,10 @@ object dzakaz: Tdzakaz
     Font.Style = []
     ParentFont = False
     TabOrder = 4
+    OnKeyPress = Edit9KeyPress
   end
   object dskbtn: TButton
-    Left = 479
+    Left = 367
     Top = 241
     Width = 141
     Height = 27
@@ -246,5 +251,20 @@ object dzakaz: Tdzakaz
     ParentShowHint = False
     ShowHint = True
     TabOrder = 8
+  end
+  object Button2: TButton
+    Left = 535
+    Top = 241
+    Width = 93
+    Height = 27
+    Caption = #1054#1090#1084#1077#1085#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 9
+    OnClick = Button2Click
   end
 end
