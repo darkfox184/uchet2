@@ -4,10 +4,10 @@ object Data8: TData8
   Width = 675
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Server=foxvaler.mysql.ukraine.com.ua'
-      'Password=5xygs7yh'
-      'User_Name=foxvaler_diler'
-      'Database=foxvaler_diler'
+      'Server=mysql317.1gb.ua'
+      'Password=75e6ac86a34'
+      'User_Name=gbua_z_clo63190'
+      'Database=gbua_z_clo63190'
       'CharacterSet=cp1251'
       'DriverID=MySQL')
     LoginPrompt = False
@@ -93,10 +93,10 @@ object Data8: TData8
   end
   object FDConnection2: TFDConnection
     Params.Strings = (
-      'Server=foxvaler.mysql.ukraine.com.ua'
-      'Password=7u31hzu2'
-      'User_Name=foxvaler_copm'
-      'Database=foxvaler_copm'
+      'Server=mysql317.1gb.ua'
+      'Password=75e6ac86a34'
+      'User_Name=gbua_z_clo63190'
+      'Database=gbua_z_clo63190'
       'CharacterSet=cp1251'
       'DriverID=MySQL')
     LoginPrompt = False

@@ -52,10 +52,11 @@ procedure Tzakaz.Button1Click(Sender: TObject);
 begin
 DataModule2.zakaz_Query.SQL.Clear;
 DataModule2.zakaz_Query.SQL.Add ('SELECT zakaz.id, zakaz.nomer, zakaz.datez, zakaz.pricez, zakaz.koll, zakaz.fio, zakaz.description, zakaz.prodavec, zakaz.garb, options.valuta, zakaz.pricez*options.valuta as prisegrn  FROM zakaz, options where zakaz.poluch =:poluch ');
+//DataModule2.zakaz_Query.SQL.Add ('SELECT zakaz.id, zakaz.nomer, zakaz.datez, zakaz.pricez, zakaz.koll, zakaz.fio, zakaz.description, zakaz.prodavec, zakaz.garb, options.valuta, zakaz.pricez*options.valuta as prisegrn  FROM zakaz, options where zakaz.poluch =:poluch ');
 DataModule2.zakaz_Query.ParamByName('poluch').Value:='нет';
 DataModule2.zakaz_Query.open;
 DataModule2.sum_Query.SQL.Clear;
-DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.SQL.Add ('SELECT ANY_VALUE(zakaz.pricez), ANY_VALUE (zakaz.koll), ANY_VALUE (options.valuta), SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch');
 DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
 DataModule2.sum_Query.Open;
 label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;
@@ -113,7 +114,7 @@ DataModule2.del_tov_Query.ParamByName('in3').AsString:=DBGrid1.Fields[0].AsStrin
 DataModule2.del_tov_Query.ExecSQL;
 DataModule2.zakaz_Query.Refresh;
 DataModule2.sum_Query.SQL.Clear;
-DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.SQL.Add ('SELECT ANY_VALUE(zakaz.pricez), ANY_VALUE (zakaz.koll), ANY_VALUE (options.valuta), SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
 DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
 DataModule2.sum_Query.Open;
 label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;
@@ -127,7 +128,7 @@ if buttonSelected = mrCancel then
 begin
  DataModule2.zakaz_Query.Refresh;
  DataModule2.sum_Query.SQL.Clear;
-DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.SQL.Add ('SELECT ANY_VALUE(zakaz.pricez), ANY_VALUE (zakaz.koll), ANY_VALUE (options.valuta), SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
 DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
 DataModule2.sum_Query.Open;
 label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;
@@ -147,7 +148,7 @@ DataModule2.zakaz_Query.SQL.Add ('SELECT zakaz.id, zakaz.nomer, zakaz.datez, zak
 DataModule2.zakaz_Query.ParamByName('poluch').Value:='нет';
 DataModule2.zakaz_Query.open;
 DataModule2.sum_Query.SQL.Clear;
-DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.SQL.Add ('SELECT ANY_VALUE(zakaz.pricez), ANY_VALUE (zakaz.koll), ANY_VALUE (options.valuta), SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
 DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
 DataModule2.sum_Query.Open;
 label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;
@@ -169,7 +170,7 @@ DataModule2.zakaz_Query.SQL.Add ('SELECT zakaz.id, zakaz.nomer, zakaz.datez, zak
 DataModule2.zakaz_Query.ParamByName('poluch').Value:='нет';
 DataModule2.zakaz_Query.open;
 DataModule2.sum_Query.SQL.Clear;
-DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.SQL.Add ('SELECT ANY_VALUE(zakaz.pricez), ANY_VALUE (zakaz.koll), ANY_VALUE (options.valuta), SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
 DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
 DataModule2.sum_Query.Open;
 label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;

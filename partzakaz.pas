@@ -141,7 +141,7 @@ Data8.del_Query.ParamByName('in3').AsString:=DBGrid1.Fields[0].AsString;
 Data8.del_Query.ExecSQL;
 Data8.zakaz_Query.Refresh;
 Data8.sum_Query.SQL.Clear;
-Data8.sum_Query.SQL.Add ('SELECT pzakaz.pricez, pzakaz.koll, options.valuta, SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
+Data8.sum_Query.SQL.Add ('SELECT ANY_VALUE(pzakaz.pricez), ANY_VALUE (pzakaz.koll), ANY_VALUE (options.valuta), SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
 Data8.sum_Query.SQL.Add ('SUM(pzakaz.pricez * pzakaz.koll ) AS sumus  FROM pzakaz, options WHERE pzakaz.poluch=:poluch ');
 Data8.sum_Query.ParamByName('poluch').Value:='нет';
 Data8.sum_Query.Open;
@@ -156,7 +156,7 @@ if buttonSelected = mrCancel then
 begin
  Data8.zakaz_Query.Refresh;
 Data8.sum_Query.SQL.Clear;
-Data8.sum_Query.SQL.Add ('SELECT pzakaz.pricez, pzakaz.koll, options.valuta, SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
+Data8.sum_Query.SQL.Add ('SELECT ANY_VALUE(pzakaz.pricez), ANY_VALUE (pzakaz.koll), ANY_VALUE (options.valuta), SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
 Data8.sum_Query.SQL.Add ('SUM(pzakaz.pricez * pzakaz.koll ) AS sumus  FROM pzakaz, options WHERE pzakaz.poluch=:poluch ');
 Data8.sum_Query.ParamByName('poluch').Value:='нет';
 Data8.sum_Query.Open;
@@ -240,7 +240,7 @@ Data8.zakaz_Query.SQL.Add (' pzakaz.garb, options.valuta, pzakaz.pricez*options.
 Data8.zakaz_Query.ParamByName('poluch').Value:='нет';
 Data8.zakaz_Query.open;
 Data8.sum_Query.SQL.Clear;
-Data8.sum_Query.SQL.Add ('SELECT pzakaz.pricez, pzakaz.koll, options.valuta, SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
+Data8.sum_Query.SQL.Add ('SELECT ANY_VALUE(pzakaz.pricez), ANY_VALUE(pzakaz.koll), ANY_VALUE(options.valuta), SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
 Data8.sum_Query.SQL.Add ('SUM(pzakaz.pricez * pzakaz.koll ) AS sumus  FROM pzakaz, options WHERE pzakaz.poluch=:poluch ');
 Data8.sum_Query.ParamByName('poluch').Value:='нет';
 Data8.sum_Query.Open;
@@ -261,7 +261,7 @@ Data8.zakaz_Query.SQL.Add (' pzakaz.garb, options.valuta, pzakaz.pricez*options.
 Data8.zakaz_Query.ParamByName('poluch').Value:='нет';
 Data8.zakaz_Query.open;
 Data8.sum_Query.SQL.Clear;
-Data8.sum_Query.SQL.Add ('SELECT pzakaz.pricez, pzakaz.koll, options.valuta, SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
+Data8.sum_Query.SQL.Add ('SELECT ANY_VALUE(pzakaz.pricez), ANY_VALUE(pzakaz.koll), ANY_VALUE(options.valuta), SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
 Data8.sum_Query.SQL.Add ('SUM(pzakaz.pricez * pzakaz.koll ) AS sumus  FROM pzakaz, options WHERE pzakaz.poluch=:poluch ');
 Data8.sum_Query.ParamByName('poluch').Value:='нет';
 Data8.sum_Query.Open;
@@ -282,7 +282,7 @@ Data8.zakaz_Query.SQL.Add (' pzakaz.garb, options.valuta, pzakaz.pricez*options.
 Data8.zakaz_Query.ParamByName('poluch').Value:='нет';
 Data8.zakaz_Query.open;
 Data8.sum_Query.SQL.Clear;
-Data8.sum_Query.SQL.Add ('SELECT pzakaz.pricez, pzakaz.koll, options.valuta, SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
+Data8.sum_Query.SQL.Add ('SELECT ANY_VALUE(pzakaz.pricez), ANY_VALUE(pzakaz.koll), ANY_VALUE(options.valuta), SUM( pzakaz.koll * pzakaz.pricez * options.valuta ) AS sumzakaz, ');
 Data8.sum_Query.SQL.Add ('SUM(pzakaz.pricez * pzakaz.koll ) AS sumus  FROM pzakaz, options WHERE pzakaz.poluch=:poluch ');
 Data8.sum_Query.ParamByName('poluch').Value:='нет';
 Data8.sum_Query.Open;

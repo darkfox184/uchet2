@@ -77,7 +77,7 @@ DataModule2.zakaz_Query.SQL.Add ('SELECT zakaz.id, zakaz.nomer, zakaz.datez, zak
 DataModule2.zakaz_Query.ParamByName('poluch').Value:='нет';
 DataModule2.zakaz_Query.open;
 DataModule2.sum_Query.SQL.Clear;
-DataModule2.sum_Query.SQL.Add ('SELECT zakaz.pricez, zakaz.koll, options.valuta, SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
+DataModule2.sum_Query.SQL.Add ('SELECT  ANY_VALUE(zakaz.pricez), ANY_VALUE (zakaz.koll), ANY_VALUE (options.valuta), SUM( zakaz.koll * zakaz.pricez * options.valuta ) AS sumzakaz, SUM(zakaz.pricez * zakaz.koll ) AS sumus  FROM zakaz, options WHERE zakaz.poluch=:poluch ');
 DataModule2.sum_Query.ParamByName('poluch').Value:='нет';
 DataModule2.sum_Query.Open;
 zakaz.label5.Caption:=DataModule2.sum_Query.Fields[3].AsString;

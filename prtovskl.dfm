@@ -5,8 +5,8 @@ object opskladf: Topskladf
   BorderStyle = bsDialog
   BorderWidth = 10
   Caption = #1055#1088#1080#1093#1086#1076#1086#1074#1072#1085#1080#1077' '#1090#1086#1074#1072#1088#1072' '#1085#1072' '#1089#1082#1083#1072#1076
-  ClientHeight = 321
-  ClientWidth = 668
+  ClientHeight = 329
+  ClientWidth = 692
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -245,8 +245,8 @@ object opskladf: Topskladf
     OnClick = dskbtnClick
   end
   object Button2: TButton
-    Left = 575
-    Top = 294
+    Left = 599
+    Top = 302
     Width = 93
     Height = 27
     Caption = #1054#1090#1084#1077#1085#1072

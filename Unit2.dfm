@@ -1,14 +1,14 @@
 object DataModule2: TDataModule2
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 627
+  Height = 762
   Width = 756
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Server=foxvaler.mysql.ukraine.com.ua'
-      'Password=7u31hzu2'
-      'User_Name=foxvaler_copm'
-      'Database=foxvaler_copm'
+      'Server=mysql317.1gb.ua'
+      'Password=75e6ac86a34'
+      'User_Name=gbua_z_clo63190'
+      'Database=gbua_z_clo63190'
       'CharacterSet=cp1251'
       'DriverID=MySQL')
     LoginPrompt = False

@@ -27,7 +27,6 @@ object AboutBox: TAboutBox
     BevelOuter = bvLowered
     ParentColor = True
     TabOrder = 0
-    ExplicitWidth = 925
     object ProgramIcon: TImage
       Left = 8
       Top = 2
@@ -1110,7 +1109,6 @@ object AboutBox: TAboutBox
       Align = alRight
       ItemHeight = 24
       TabOrder = 0
-      ExplicitLeft = 156
     end
   end
 end
